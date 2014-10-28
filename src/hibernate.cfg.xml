@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/techpesc</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="generate_statistics">true</property>
+        <property name="use_sql_coments">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="techpesc.funcionario.Funcionario"/>
+        <mapping class="techpesc.tanquerede.TanqueRede"/>
+        <mapping class="techpesc.lote.Lote"/>
+        <mapping class="techpesc.fornecedor.Fornecedor"/>
+        <mapping class="techpesc.usuario.Usuario"/>
+        <mapping class="techpesc.alevinos.Alevino"/>
+        <mapping class="techpesc.estoque.malha.Malha"/>
+        <mapping class="techpesc.estoque.medicamento.Medicamento"/>
+        <mapping class="techpesc.estoque.racao.Racao"/>
+        <mapping class="techpesc.estoque.outros.Outros"/>
+        <mapping class="techpesc.mortandade.Mortandade"/>
+        <mapping class="techpesc.transfereTR.Transferencia"/>
+        <mapping class="techpesc.alimentacao.Alimentacao"/>
+        <mapping class="techpesc.venda.Venda"/>
+        
+        
+    </session-factory>
+</hibernate-configuration>
+
