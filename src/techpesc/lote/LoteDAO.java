@@ -4,8 +4,12 @@
  */
 package techpesc.lote;
 
+import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import techpesc.tanquerede.TanqueRede;
 import techpesc.util.GenericDAO;
 import techpesc.util.HibernateUtil;
 
@@ -20,7 +24,7 @@ public class LoteDAO extends GenericDAO<Lote> {
     }
 
     public void salvar(Lote l) {
-        if (l.getIdLote()== 0) {
+        if (l.getIdLote() == 0) {
             adicionar(l);
         } else {
             atualizar(l);
@@ -44,7 +48,16 @@ public class LoteDAO extends GenericDAO<Lote> {
         }
         return lote;
     }
-    
-    
+
+       public List <Lote> pesquisaNome(String lote){
+        setSessao(HibernateUtil.getSessionFactory().openSession());
+        setTransacao(getSessao().beginTransaction());
+        
+        List <Lote> lotes = (List<Lote>) getSessao().createCriteria(Lote.class).
+                add(Restrictions.ilike("nomeLote", lote, MatchMode.ANYWHERE)).list();
+        
+        getSessao().close();
+        return lotes;
+    }
 
 }
