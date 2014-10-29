@@ -216,7 +216,7 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
             Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);          
             
             sql += " and lote.idLote=" + l.getIdLote();
-            sql += " order by l.nomeLote";
+            sql += " order by lote.nomeLote";
             parametros.put("texto", sql);
             
             
