@@ -45,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
         JlUsuario1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Estoque = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
@@ -157,6 +158,17 @@ public class Principal extends javax.swing.JFrame {
                 EstoqueActionPerformed(evt);
             }
         });
+
+        jMenuItem4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem4.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        jMenuItem4.setText("Cliente");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        Estoque.add(jMenuItem4);
 
         jMenuItem3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem3.setForeground(new java.awt.Color(23, 49, 106));
@@ -453,7 +465,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-    new CadastroEntradaAlevino().setVisible(true);
+    new CadastroCliente().setVisible(true);
 
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
@@ -504,6 +516,10 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
        new TelaRelatorioMortandade().setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       new CadastroCliente().setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,6 +583,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;

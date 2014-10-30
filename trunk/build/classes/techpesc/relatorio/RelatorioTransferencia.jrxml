@@ -7,30 +7,42 @@
 		<![CDATA[SELECT
      *
 FROM
-     `tanquerede` tanquerede]]>
+     `lote` lote INNER JOIN `transferencia` transferencia ON lote.`idLote` = transferencia.`lote_idLote`]]>
 	</queryString>
-	<field name="idTanqueRede" class="java.lang.Integer">
+	<field name="idLote" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="areaTanqueRede" class="java.lang.Double">
+	<field name="lucroEstimado" class="java.lang.Double">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="estadoPeixe" class="java.lang.String">
+	<field name="nomeLote" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="limiteAlevinosTanqueRede" class="java.lang.Integer">
+	<field name="previsaoAbate" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="mortandadeTanqueRede" class="java.lang.Integer">
+	<field name="alevino_idEntradaAlevino" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nomeTanqueRede" class="java.lang.String">
+	<field name="idTransferencia" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="quantidadePeixesVinculados" class="java.lang.Integer">
+	<field name="dataTransferencia" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="situacaoTanqueRede" class="java.lang.Boolean">
+	<field name="idTanqueAntigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idTanqueNovo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeTanqueRedeAntigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeTanqueRedeNovo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lote_idLote" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<variable name="soma" class="java.lang.Integer" calculation="Sum">
@@ -92,13 +104,13 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="78">
+		<band height="70">
 			<textField>
 				<reportElement uuid="f6c968c6-e556-466b-9043-bb5f3c2a7d69" x="99" y="13" width="78" height="27" forecolor="#006699"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{idTanqueRede}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{idLote}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="16be5bb7-a76d-4dc0-997a-c329655a7315" x="32" y="13" width="67" height="27" forecolor="#000000"/>
@@ -107,12 +119,12 @@ FROM
 				</textElement>
 				<text><![CDATA[N° Transf..:]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy h:mm a" isBlankWhenNull="false">
-				<reportElement uuid="6a1286be-d6bb-4349-b638-173947a90c47" x="269" y="13" width="209" height="27" forecolor="#006699"/>
+			<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="false">
+				<reportElement uuid="6a1286be-d6bb-4349-b638-173947a90c47" x="269" y="13" width="274" height="27" forecolor="#006699"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nomeTanqueRede}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{dataTransferencia}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="5c082ce2-9ca5-49b9-a965-feb06f73bf94" x="177" y="13" width="92" height="27" forecolor="#000000"/>
@@ -122,14 +134,14 @@ FROM
 				<text><![CDATA[Data Transf..:]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement uuid="a58a759d-ba92-4a4c-aecd-e0bef5134be4" mode="Transparent" x="30" y="13" width="513" height="54"/>
+				<reportElement uuid="a58a759d-ba92-4a4c-aecd-e0bef5134be4" mode="Transparent" x="21" y="13" width="522" height="54"/>
 			</rectangle>
 			<textField>
 				<reportElement uuid="f6c968c6-e556-466b-9043-bb5f3c2a7d69" x="99" y="40" width="78" height="27" forecolor="#006699"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{limiteAlevinosTanqueRede}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeLote}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="16be5bb7-a76d-4dc0-997a-c329655a7315" x="32" y="40" width="67" height="27" forecolor="#000000"/>
@@ -150,14 +162,14 @@ FROM
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{quantidadePeixesVinculados}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeTanqueRedeAntigo}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="false">
 				<reportElement uuid="6a1286be-d6bb-4349-b638-173947a90c47" x="478" y="40" width="65" height="27" forecolor="#006699"/>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{mortandadeTanqueRede}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nomeTanqueRedeNovo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="5c082ce2-9ca5-49b9-a965-feb06f73bf94" x="177" y="40" width="92" height="27" forecolor="#000000"/>

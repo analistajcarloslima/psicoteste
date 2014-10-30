@@ -28,6 +28,7 @@
         <mapping class="techpesc.transfereTR.Transferencia"/>
         <mapping class="techpesc.alimentacao.Alimentacao"/>
         <mapping class="techpesc.venda.Venda"/>
+        <mapping class="techpesc.cliente.Cliente"/>
         
         
     </session-factory>

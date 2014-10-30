@@ -418,7 +418,7 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 transferencia.setIdTanqueAntigo(listaTanquesAntigos.get(i).getIdTanqueRede());
                 transferencia.setNomeTanqueRedeAntigo(listaTanquesAntigos.get(i).getNomeTanqueRede());

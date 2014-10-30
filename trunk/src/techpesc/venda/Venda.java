@@ -5,6 +5,7 @@
  */
 package techpesc.venda;
 
+import groovy.lang.Lazy;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -18,11 +19,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import techpesc.cliente.Cliente;
 import techpesc.lote.Lote;
 import techpesc.tanquerede.TanqueRede;
 
@@ -37,19 +40,23 @@ public class Venda {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Lote lote;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    private Cliente cliente;
+
     @Column(length = 20, nullable = false)
     private Date dataVenda;
-    
+
     @Column(length = 500, nullable = false)
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(FetchMode.SUBSELECT)
     @JoinTable(name = "vendaTanqueRede",
-            joinColumns =
-            @JoinColumn(name = "idVenda"),
-            inverseJoinColumns =
-            @JoinColumn(name = "idTanqueRede"))
+            joinColumns
+            = @JoinColumn(name = "idVenda"),
+            inverseJoinColumns
+            = @JoinColumn(name = "idTanqueRede"))
     private List<TanqueRede> tanquesVendidos;
-    
+
     @Column(length = 50, nullable = false)
     private double valorVendaTanqueRede;
 
@@ -161,6 +168,18 @@ public class Venda {
         return true;
     }
 
-    
-  
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
 }
