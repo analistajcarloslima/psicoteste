@@ -39,6 +39,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
     SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy hh:mm");
     Date data = new Date();
     Date dataAtual = new Date();
+    List<TanqueRede> listaTanquesMortos = new ArrayList<>();
 
     /**
      * Creates new form Cadastro_de_Funcionário
@@ -344,17 +345,17 @@ public class CadastroMortandade extends javax.swing.JDialog {
             mortandade = new Mortandade();
         }
         if (mortandade.getIdMortandade() == 0) {
-            for (int i = 0; i < tanqueRedes.size(); i++) {
+            for (int i = 0; i < listaTanquesMortos.size(); i++) {
                 mortandade.setLote(lote);
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
                     Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                mortandade.setIdTanqueRede(tanqueRedes.get(i).getIdTanqueRede());
-                mortandade.setMortandadeTanqueRede(tanqueRedes.get(i).getMortandadeTanqueRede());
-                mortandade.setNomeTanqueRede(tanqueRedes.get(i).getNomeTanqueRede());
-                mortandade.setQuantidadePeixesVinculados(tanqueRedes.get(i).getQuantidadePeixesVinculados());
+                mortandade.setIdTanqueRede(listaTanquesMortos.get(i).getIdTanqueRede());
+                mortandade.setMortandadeTanqueRede(listaTanquesMortos.get(i).getMortandadeTanqueRede());
+                mortandade.setNomeTanqueRede(listaTanquesMortos.get(i).getNomeTanqueRede());
+                mortandade.setQuantidadePeixesVinculados(listaTanquesMortos.get(i).getQuantidadePeixesVinculados());
                 mortandade.setDataMortandade(dataAtual);
                 mortandadeDAO.salvar(mortandade);
                 mortandade.setIdMortandade(Short.valueOf("0"));
@@ -390,6 +391,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
         tfNomeLote.setText("");
         tanqueRedes.clear();
         atualizaTabelaTanqueRede();
+        listaTanquesMortos.clear();
     }
 
     private void btVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarMenuActionPerformed
@@ -455,6 +457,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
             if (peixesMortos >= tanqueRedes.get(tbTanqueRede.getSelectedRow()).getMortandadeTanqueRede() - tanqueRedes.get(tbTanqueRede.getSelectedRow()).getLimiteAlevinosTanqueRede()) {
                 if (peixesMortos <= tanqueRedes.get(tbTanqueRede.getSelectedRow()).getQuantidadePeixesVinculados()) {
                     tanqueRedes.get(tbTanqueRede.getSelectedRow()).setMortandadeTanqueRede(peixesMortos + tanqueRedes.get(tbTanqueRede.getSelectedRow()).getMortandadeTanqueRede());
+                    listaTanquesMortos.add(tanqueRedes.get(tbTanqueRede.getSelectedRow()));
                     calculaMortandade(peixesMortos);
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Não é possível inserir essa quantidade de peixes mortos,\npois é maior que a quantidade contida no tanque", "ERRO", JOptionPane.ERROR_MESSAGE);
