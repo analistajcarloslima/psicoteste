@@ -59,13 +59,12 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem21 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
 
@@ -309,42 +308,16 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jMenuItem12.setBackground(new java.awt.Color(23, 49, 106));
-        jMenuItem12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem12.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem12.setText("Arrecadação Financeira");
-        jMenu3.add(jMenuItem12);
+        jMenuItem21.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem21.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
+        jMenuItem21.setText("Estoque");
+        jMenu3.add(jMenuItem21);
 
-        jMenuItem7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem7.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem7.setText("Estoque");
-        jMenu3.add(jMenuItem7);
-
-        jMenuItem6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem6.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem6.setText("Financeiro");
-        jMenu3.add(jMenuItem6);
-
-        jMenuItem8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem8.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem8.setText("LOG´s");
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem9.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem9.setText("R.H.");
-        jMenu3.add(jMenuItem9);
-
-        jMenuItem10.setBackground(new java.awt.Color(23, 49, 106));
         jMenuItem10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem10.setForeground(new java.awt.Color(23, 49, 106));
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem10.setText("Previsão Financeira");
+        jMenuItem10.setText("Lista de Lotes");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -352,12 +325,49 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem10);
 
-        jMenuItem13.setBackground(new java.awt.Color(23, 49, 106));
-        jMenuItem13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem13.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
-        jMenuItem13.setText("Previsão de Abate");
-        jMenu3.add(jMenuItem13);
+        jMenuItem9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem9.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
+        jMenuItem9.setText("Lista de Tanques");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
+        jMenuItem12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem12.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
+        jMenuItem12.setText("Mortandade por Lote");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem12);
+
+        jMenuItem7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem7.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
+        jMenuItem7.setText("Previsão de Abate");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem22.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem22.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_relatorios.png"))); // NOI18N
+        jMenuItem22.setText("Transferência de T.R por Lote");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem22);
 
         jMenuBar1.add(jMenu3);
 
@@ -432,10 +442,6 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         new CadastroTanqueRede().setVisible(true);
      // TODO add your handling code here:
@@ -478,6 +484,26 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
       new Tutoriais().setVisible(true);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+      new TelaRelatorioPrevisaoTanque().setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+       new TelaRelatorioTanquesEmLotes().setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+       new TelaRelatorioTransferencia().setVisible(true);
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+      new TelaRelatorioTanques().setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+       new TelaRelatorioMortandade().setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -530,7 +556,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
@@ -539,11 +564,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
