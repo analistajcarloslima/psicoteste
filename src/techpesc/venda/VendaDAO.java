@@ -32,7 +32,7 @@ public class VendaDAO extends GenericDAO<Venda> {
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
         } else {
             atualizar(v);
-            JOptionPane.showMessageDialog(null, "Editada realizada com sucesso!");
+            JOptionPane.showMessageDialog(null, "Venda editada realizada com sucesso!");
         }
 
     }

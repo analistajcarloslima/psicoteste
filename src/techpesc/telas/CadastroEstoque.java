@@ -693,13 +693,13 @@ public class CadastroEstoque extends javax.swing.JDialog {
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 estoque.setDataEntrada(dataAtual);
                 try {
                     dataValidade = formatar.parse(tfDataValidade.getText());
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 estoque.setDataValidade(dataValidade);
                 estoque.setDescricaoOutros(tfDescricao.getText());
@@ -727,13 +727,13 @@ public class CadastroEstoque extends javax.swing.JDialog {
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 estoque.setDataEntrada(dataAtual);
                 try {
                     dataValidade = formatar.parse(tfDataValidade.getText());
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 estoque.setDataValidade(dataValidade);
                 estoque.setDescricaoOutros(tfDescricao.getText());

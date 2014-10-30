@@ -350,7 +350,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mortandade.setIdTanqueRede(listaTanquesMortos.get(i).getIdTanqueRede());
                 mortandade.setMortandadeTanqueRede(listaTanquesMortos.get(i).getMortandadeTanqueRede());
@@ -370,7 +370,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
                     try {
                         dataAtual = formatar.parse(formatar.format(data));
                     } catch (ParseException ex) {
-                        Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     mortandade.setIdTanqueRede(tanqueRedes.get(i).getIdTanqueRede());
                     mortandade.setMortandadeTanqueRede(tanqueRedes.get(i).getMortandadeTanqueRede());

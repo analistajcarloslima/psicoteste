@@ -489,7 +489,7 @@ public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 alimentacao.setDataAlimentacao(dataAtual);
                 alimentacaoDAO.salvar(alimentacao);

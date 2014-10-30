@@ -744,7 +744,7 @@ public class CadastroLote extends javax.swing.JDialog {
                 try {
                     dataAbate = formatar.parse(tfPrevisaoAbate.getText());
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 lote.setPrevisaoAbate(dataAbate);
                 alevino.setSituacaoEntradaAlevino(false);
@@ -774,7 +774,7 @@ public class CadastroLote extends javax.swing.JDialog {
                 try {
                     dataAbate = formatar.parse(tfPrevisaoAbate.getText());
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 lote.setPrevisaoAbate(dataAbate);
                 if (alevino.getFornecedor() == null) {
@@ -1020,7 +1020,7 @@ public class CadastroLote extends javax.swing.JDialog {
     }//GEN-LAST:event_btSalvar1ActionPerformed
 
     private void btCadastraEntradaAlevinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastraEntradaAlevinoActionPerformed
-        new CadastroEntradaAlevino().setVisible(true);
+        new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_btCadastraEntradaAlevinoActionPerformed
 
     private void btCadastraTanqueRedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastraTanqueRedeActionPerformed

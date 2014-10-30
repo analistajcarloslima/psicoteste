@@ -369,7 +369,7 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -442,7 +442,6 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
             alevino.setDataNascimentoAlevino(dataNascimento);
 
             alevino.setFornecedor(fornecedor);
-            alevinoDAO.salvar(alevino);
             if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar a entrada da Data: " + alevino.getDataEntrada()
                     + " do Fornecedor: " + alevino.getFornecedor().getNomeFornecedor() + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
                 alevinoDAO.salvar(alevino);
@@ -559,6 +558,8 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

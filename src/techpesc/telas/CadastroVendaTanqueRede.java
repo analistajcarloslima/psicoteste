@@ -18,6 +18,10 @@ import javax.swing.JOptionPane;
 import techpesc.alimentacao.Alimentacao;
 import techpesc.alimentacao.AlimentacaoDAO;
 import techpesc.alimentacao.AlimentacaoTableModel;
+import techpesc.cliente.Cliente;
+import techpesc.cliente.ClienteDAO;
+import techpesc.cliente.ClienteRN;
+import techpesc.cliente.ClienteTableModel;
 import techpesc.estoque.racao.Racao;
 import techpesc.estoque.racao.RacaoDAO;
 import techpesc.estoque.racao.RacaoRN;
@@ -44,6 +48,9 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     Lote lote = new Lote();
     Venda venda = new Venda();
     VendaDAO vendaDAO = new VendaDAO();
+    
+    Cliente cliente = new Cliente();
+    ClienteRN clienteRN = new ClienteRN();
 
     TanqueRedeDAO tanqueredeDAO = new TanqueRedeDAO();
     Alimentacao alimentacao = new Alimentacao();
@@ -120,6 +127,9 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         jLabel45 = new javax.swing.JLabel();
         tfValorTotal = new javax.swing.JLabel();
         btExcluirTanqueRede1 = new javax.swing.JButton();
+        btPesquisarNome5 = new javax.swing.JButton();
+        tfCliente = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -373,6 +383,30 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
             }
         });
 
+        btPesquisarNome5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btPesquisarNome5.setForeground(java.awt.Color.white);
+        btPesquisarNome5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_pesquisar.png"))); // NOI18N
+        btPesquisarNome5.setContentAreaFilled(false);
+        btPesquisarNome5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisarNome5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btPesquisarNome5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btPesquisarNome5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarNome5ActionPerformed(evt);
+            }
+        });
+
+        tfCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfClienteActionPerformed(evt);
+            }
+        });
+
+        jLabel46.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setText("Cliente.:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -392,12 +426,18 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                         .addGap(48, 48, 48)
                         .addComponent(tfHora))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jLabel42)
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel42))
                         .addGap(12, 12, 12)
-                        .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfCliente)
+                            .addComponent(tfNomeLote, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btPesquisarNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -444,12 +484,19 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btPesquisarNome4)
                     .addComponent(jLabel42)
-                    .addComponent(tfNomeLote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                    .addComponent(tfNomeLote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btPesquisarNome5)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(tfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel46)))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel43)))
                     .addComponent(btExcluirTanqueRede1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btVender, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -457,7 +504,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel45)
                             .addComponent(tfValorTotal))))
@@ -493,12 +540,13 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                     listaTanqueRedesVendidos.get(i).setMortandadeTanqueRede(0);
                 }
                 venda.setLote(lote);
+                venda.setCliente(cliente);
                 venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
                 venda.setTanquesVendidos(listaTanqueRedesVendidos);
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 venda.setDataVenda(dataAtual);
                 vendaDAO.salvar(venda);
@@ -510,12 +558,13 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         } else {
             if (!listaTanqueRedesVendidos.isEmpty()) {
                 venda.setLote(lote);
+                venda.setCliente(cliente);
                 venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
                 venda.setTanquesVendidos(listaTanqueRedesVendidos);
                 try {
                     dataAtual = formatar.parse(formatar.format(data));
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 venda.setDataVenda(dataAtual);
                 vendaDAO.salvar(venda);
@@ -531,7 +580,9 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
 
     public void limparCampos() {
         lote = new Lote();
+        cliente = new Cliente();
         tfNomeLote.setText("");
+        tfCliente.setText("");
         tanqueRedesLote.clear();
         tanqueRedesNovoTR.clear();
         valorVendaLista.clear();
@@ -540,6 +591,8 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         valorVendaLista.clear();
         lote = null;
         venda = null;
+        cliente = null;
+        
         tfValorTotal.setText("0,0");
         atualizaTabelaTanqueRedeLote();
         atualizaTabelaTanqueRedeNovoTR();
@@ -592,10 +645,12 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         if (o != null) {
             venda = dao.pesquisarCodigo(Short.valueOf(String.valueOf(o)));
             tfNomeLote.setText(venda.getLote().getNomeLote());
+            tfCliente.setText(venda.getCliente().getNomeCliente());
             tanqueRedesLote = venda.getLote().getTanquesRede();
             tanqueRedesNovoTR.addAll(venda.getTanquesVendidos());
             listaTanqueRedesVendidos.addAll(venda.getTanquesVendidos());
             lote = venda.getLote();
+            cliente = venda.getCliente();
             valorVendaLista.add(venda.getValorVendaTanqueRede());
             tfValorTotal.setText(String.valueOf(venda.getValorVendaTanqueRede()));
             atualizaTabelaTanqueRedeLote();
@@ -609,6 +664,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         Double valorVenda = 0.0;
         int row = tbTanqueRedeLote.getSelectedRow();
         if (lote != null) {
+            if (cliente != null) {
             if (row > -1) {
                 if (JOptionPane.showConfirmDialog(null, "Você deseja realmente vender os peixes do Tanque.: " + tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getNomeTanqueRede()
                         + " ?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
@@ -642,6 +698,10 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Selecione o Tanque Rede!",
                         "ERRO", JOptionPane.ERROR_MESSAGE);
             }
+            } else {
+            JOptionPane.showMessageDialog(rootPane, "É obrigatório vincular um cliente!",
+                    "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
         } else {
             JOptionPane.showMessageDialog(rootPane, "É obrigatório vincular um lote!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -738,6 +798,21 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         atualizaTabelaTanqueRedeNovoTR();
     }//GEN-LAST:event_btExcluirTanqueRede1ActionPerformed
 
+    private void btPesquisarNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarNome5ActionPerformed
+      ClienteDAO clienteDAO = new ClienteDAO();
+        cliente = new Cliente();
+
+        ClienteTableModel clienteTM = new ClienteTableModel(clienteDAO.listar());
+        Object object = TelaConsulta.exibeTela(clienteTM, "Clientes");        // TODO add your handling code here:
+        Short codigo = Short.valueOf(String.valueOf(object));
+        cliente = clienteDAO.pesquisarCodigo(codigo);
+        tfCliente.setText(cliente.getNomeCliente());
+    }//GEN-LAST:event_btPesquisarNome5ActionPerformed
+
+    private void tfClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -789,6 +864,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     private javax.swing.JButton btExcluirTanqueRede1;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarNome4;
+    private javax.swing.JButton btPesquisarNome5;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btSalvar1;
     private javax.swing.JButton btVender;
@@ -800,6 +876,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -808,6 +885,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable tbTanqueRedeLote;
     private javax.swing.JTable tbTanqueRedeNovoTR;
+    private javax.swing.JTextField tfCliente;
     private javax.swing.JLabel tfHora;
     private javax.swing.JTextField tfNomeLote;
     private javax.swing.JLabel tfValorTotal;
