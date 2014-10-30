@@ -211,13 +211,13 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
         HashMap parametros = new HashMap();
         String sql = "", texto = "";
         
-        LoteDAO loteDAO = new LoteDAO();
+       // LoteDAO loteDAO = new LoteDAO();
             
-            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);          
+//            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);          
             
-            sql += " and lote.idLote=" + l.getIdLote();
-            sql += " order by lote.nomeLote";
-            parametros.put("texto", sql);
+  //          sql += " and lote.idLote=" + l.getIdLote();
+      //      sql += " order by lote.nomeLote";
+    //        parametros.put("texto", sql);
             
             
         Connection connection = new ConnectionFactory().getConnection();
