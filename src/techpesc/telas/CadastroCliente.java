@@ -526,6 +526,7 @@ public class CadastroCliente extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Este CPF já está cadastrado! Redigite",
                         "ERRO", JOptionPane.ERROR_MESSAGE);
                 tfCPF.setText("");
+                tfCPF.requestFocus();
 
             }
         }
