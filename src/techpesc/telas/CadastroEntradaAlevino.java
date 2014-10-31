@@ -88,6 +88,7 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         tfFornecedor = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         btPesquisarNome4 = new javax.swing.JButton();
+        btCadastroLote = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Entrada de Alevinos");
@@ -279,6 +280,19 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
             }
         });
 
+        btCadastroLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCadastroLote.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastroLote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastroLote.setContentAreaFilled(false);
+        btCadastroLote.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastroLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastroLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastroLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastroLoteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -318,7 +332,9 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(tfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -353,8 +369,9 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel42))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel42)
+                            .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -369,7 +386,7 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -533,6 +550,10 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tfDataNascimentoFocusLost
 
+    private void btCadastroLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLoteActionPerformed
+        new CadastroFornecedor().setVisible(true);
+    }//GEN-LAST:event_btCadastroLoteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -572,6 +593,7 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadastroLote;
     private javax.swing.JButton btExcluir3;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarNome4;

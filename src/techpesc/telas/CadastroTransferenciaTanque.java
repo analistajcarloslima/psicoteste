@@ -87,6 +87,7 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
         tbTanqueRedeNovoTR = new javax.swing.JTable();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
+        btCadastroLote1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Transferência de Tanque Rede");
@@ -316,6 +317,19 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("T.R Lote.:");
 
+        btCadastroLote1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCadastroLote1.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastroLote1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastroLote1.setContentAreaFilled(false);
+        btCadastroLote1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastroLote1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastroLote1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastroLote1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastroLote1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -347,8 +361,10 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
                                 .addComponent(jLabel42)
                                 .addGap(12, 12, 12)
                                 .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btCadastroLote1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -367,23 +383,23 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(13, 13, 13)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btPesquisarNome4)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btCadastroLote1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel42)))
+                        .addComponent(jLabel42)
+                        .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btTransferencia))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43)
-                            .addComponent(jLabel44))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btTransferencia)
-                        .addGap(20, 20, 20)))
+                            .addComponent(jLabel44))))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -586,6 +602,10 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbTanqueRedeNovoTRMouseClicked
 
+    private void btCadastroLote1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLote1ActionPerformed
+        new CadastroLote().setVisible(true);
+    }//GEN-LAST:event_btCadastroLote1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -627,6 +647,8 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadastroLote;
+    private javax.swing.JButton btCadastroLote1;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarNome4;
     private javax.swing.JButton btSalvar;
