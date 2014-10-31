@@ -77,6 +77,7 @@ public class CadastroUsuario extends javax.swing.JDialog {
         tfFuncionario = new javax.swing.JTextField();
         btPesquisarFuncionario = new javax.swing.JButton();
         jLFuncionario = new javax.swing.JLabel();
+        btCadastroLote = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Usuário");
@@ -251,6 +252,19 @@ public class CadastroUsuario extends javax.swing.JDialog {
         jLFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         jLFuncionario.setText("Funcionário.:");
 
+        btCadastroLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCadastroLote.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastroLote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastroLote.setContentAreaFilled(false);
+        btCadastroLote.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastroLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastroLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastroLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastroLoteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -297,8 +311,10 @@ public class CadastroUsuario extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
+                .addComponent(btPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,12 +336,13 @@ public class CadastroUsuario extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel42))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btPesquisarFuncionario)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLFuncionario)))
+                        .addComponent(jLFuncionario))
+                    .addComponent(btPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addComponent(cbAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
@@ -484,6 +501,10 @@ public class CadastroUsuario extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tfUsuarioFocusLost
 
+    private void btCadastroLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLoteActionPerformed
+       new CadastroFuncionario().setVisible(true);
+    }//GEN-LAST:event_btCadastroLoteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -520,6 +541,7 @@ public class CadastroUsuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadastroLote;
     private javax.swing.JButton btExcluir3;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarFuncionario;

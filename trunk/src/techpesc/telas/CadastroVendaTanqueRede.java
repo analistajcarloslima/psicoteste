@@ -130,6 +130,8 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         btPesquisarNome5 = new javax.swing.JButton();
         tfCliente = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
+        btCadastroLote = new javax.swing.JButton();
+        btCadastroLote1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -407,6 +409,32 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("Cliente.:");
 
+        btCadastroLote.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCadastroLote.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastroLote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastroLote.setContentAreaFilled(false);
+        btCadastroLote.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastroLote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastroLote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastroLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastroLoteActionPerformed(evt);
+            }
+        });
+
+        btCadastroLote1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btCadastroLote1.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastroLote1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastroLote1.setContentAreaFilled(false);
+        btCadastroLote1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastroLote1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastroLote1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastroLote1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastroLote1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -435,9 +463,13 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                             .addComponent(tfCliente)
                             .addComponent(tfNomeLote, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btPesquisarNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btPesquisarNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btCadastroLote1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -480,20 +512,28 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                         .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btPesquisarNome4)
-                    .addComponent(jLabel42)
-                    .addComponent(tfNomeLote, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel42))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btPesquisarNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btPesquisarNome5)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 1, Short.MAX_VALUE)
+                                .addComponent(btCadastroLote1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(tfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel46)))
-                        .addGap(43, 43, 43)
+                                .addComponent(jLabel46)
+                                .addComponent(btPesquisarNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel44, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel43)))
@@ -813,6 +853,14 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfClienteActionPerformed
 
+    private void btCadastroLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLoteActionPerformed
+        new CadastroLote().setVisible(true);
+    }//GEN-LAST:event_btCadastroLoteActionPerformed
+
+    private void btCadastroLote1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLote1ActionPerformed
+       new CadastroCliente().setVisible(true);
+    }//GEN-LAST:event_btCadastroLote1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -861,6 +909,8 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadastroLote;
+    private javax.swing.JButton btCadastroLote1;
     private javax.swing.JButton btExcluirTanqueRede1;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarNome4;
