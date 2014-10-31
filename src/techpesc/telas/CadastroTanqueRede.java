@@ -12,6 +12,7 @@ import techpesc.tanquerede.TanqueRede;
 import techpesc.tanquerede.TanqueRedeDAO;
 import techpesc.tanquerede.TanqueRedeRN;
 import techpesc.tanquerede.TanqueRedeTableModel;
+import techpesc.util.Util;
 
 /**
  *
@@ -218,7 +219,7 @@ public class CadastroTanqueRede extends javax.swing.JDialog {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        EstadoPeixe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "----", "Alevino", "Juvenil", "Adulto" }));
+        EstadoPeixe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "Alevino", "Juvenil", "Adulto" }));
         EstadoPeixe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EstadoPeixeActionPerformed(evt);
@@ -369,6 +370,7 @@ public class CadastroTanqueRede extends javax.swing.JDialog {
         if (tanqueRede == null) {
             tanqueRede = new TanqueRede();
         }
+        if (Util.chkVazio(tfArea.getText(), tfMaxAlevinos.getText(),tfNomeCompleto.getText(),EstadoPeixe.getSelectedItem().toString()) == true) {
         if (tanqueRede.getIdTanqueRede() == 0) {
             tanqueRede.setNomeTanqueRede(tfNomeCompleto.getText());
             tanqueRede.setEstadoPeixe(EstadoPeixe.getSelectedItem().toString());
@@ -390,6 +392,7 @@ public class CadastroTanqueRede extends javax.swing.JDialog {
                         + ", foi editado com sucesso!", "Tanque Rede", JOptionPane.INFORMATION_MESSAGE);
             }
             limparCampos();
+        }
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 

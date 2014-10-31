@@ -737,76 +737,78 @@ public class CadastroLote extends javax.swing.JDialog {
         if (lote == null) {
             lote = new Lote();
         }
-        if (verificaTanquesVazios() == false) {
-            if (lote.getIdLote() == 0) {
-                lote.setNomeLote(tfNomeLote.getText());
-                lote.setLucroEstimado(Double.parseDouble(tfLucroEstimado.getText()));
-                try {
-                    dataAbate = formatar.parse(tfPrevisaoAbate.getText());
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                lote.setPrevisaoAbate(dataAbate);
-                alevino.setSituacaoEntradaAlevino(false);
-                lote.setAlevino(alevino);
-                lote.setTanquesRede(tanqueRedes);
-                if (tfNomeLote.getText() == "" || tfPrevisaoAbate.getText() == "") {
-                    JOptionPane.showMessageDialog(rootPane, "Os campos Nome do Lote e Previsão de Abate são obrigatórios!",
-                            "ERRO", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    if (Integer.parseInt(tfQtdDePeixesNaoVinculados1.getText()) > 0) {
-                        JOptionPane.showMessageDialog(rootPane, "A quantidade de tanques vinculados não é suficiente para armazenar todos os peixes deste lote!",
-                                "ERRO", JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        alevinoDAO.salvar(alevino);
-                        loteDAO.salvar(lote);
-                        for (int i = 0; i < tanqueRedes.size(); i++) {
-                            tanqueRedeDAO.salvar(tanqueRedes.get(i));
-                        }
-                        JOptionPane.showMessageDialog(rootPane, "Lote Cadastrado com Sucesso!");
-                        limparCampos();
+        if (Util.chkVazio(tfNomeLote.getText(), tfPrevisaoAbate.getText(),tfNumeroEntrada.getText()) == true) {
+            if (verificaTanquesVazios() == false) {
+                if (lote.getIdLote() == 0) {
+                    lote.setNomeLote(tfNomeLote.getText());
+                    lote.setLucroEstimado(Double.parseDouble(tfLucroEstimado.getText()));
+                    try {
+                        dataAbate = formatar.parse(tfPrevisaoAbate.getText());
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }
-
-            } else {
-                lote.setNomeLote(tfNomeLote.getText());
-                lote.setLucroEstimado(Double.parseDouble(tfLucroEstimado.getText()));
-                try {
-                    dataAbate = formatar.parse(tfPrevisaoAbate.getText());
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                lote.setPrevisaoAbate(dataAbate);
-                if (alevino.getFornecedor() == null) {
-                    lote.setAlevino(lote.getAlevino());
-                } else {
+                    lote.setPrevisaoAbate(dataAbate);
+                    alevino.setSituacaoEntradaAlevino(false);
                     lote.setAlevino(alevino);
-                }
-                lote.setTanquesRede(tanqueRedes);
-                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o Lote: " + lote.getNomeLote()
-                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
-                    if (Integer.parseInt(tfQtdDePeixesNaoVinculados1.getText()) > 0) {
-                        JOptionPane.showMessageDialog(rootPane, "A quantidade de tanques vinculados não é suficiente para armazenar todos os peixes deste lote!",
+                    lote.setTanquesRede(tanqueRedes);
+                    if (tfNomeLote.getText() == "" || tfPrevisaoAbate.getText() == "") {
+                        JOptionPane.showMessageDialog(rootPane, "Os campos Nome do Lote e Previsão de Abate são obrigatórios!",
                                 "ERRO", JOptionPane.ERROR_MESSAGE);
                     } else {
-                        loteDAO.salvar(lote);
-                        for (int i = 0; i < tanqueRedes.size(); i++) {
-                            tanqueRedeDAO.salvar(tanqueRedes.get(i));
+                        if (Integer.parseInt(tfQtdDePeixesNaoVinculados1.getText()) > 0) {
+                            JOptionPane.showMessageDialog(rootPane, "A quantidade de tanques vinculados não é suficiente para armazenar todos os peixes deste lote!",
+                                    "ERRO", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            alevinoDAO.salvar(alevino);
+                            loteDAO.salvar(lote);
+                            for (int i = 0; i < tanqueRedes.size(); i++) {
+                                tanqueRedeDAO.salvar(tanqueRedes.get(i));
+                            }
+                            JOptionPane.showMessageDialog(rootPane, "Lote Cadastrado com Sucesso!");
+                            limparCampos();
                         }
-                        JOptionPane.showMessageDialog(rootPane, "Pronto, o Lote" + lote.getNomeLote()
-                                + ", foi editado com sucesso!", "Lote", JOptionPane.INFORMATION_MESSAGE);
+                    }
+
+                } else {
+                    lote.setNomeLote(tfNomeLote.getText());
+                    lote.setLucroEstimado(Double.parseDouble(tfLucroEstimado.getText()));
+                    try {
+                        dataAbate = formatar.parse(tfPrevisaoAbate.getText());
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    lote.setPrevisaoAbate(dataAbate);
+                    if (alevino.getFornecedor() == null) {
+                        lote.setAlevino(lote.getAlevino());
+                    } else {
+                        lote.setAlevino(alevino);
+                    }
+                    lote.setTanquesRede(tanqueRedes);
+                    if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o Lote: " + lote.getNomeLote()
+                            + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                        if (Integer.parseInt(tfQtdDePeixesNaoVinculados1.getText()) > 0) {
+                            JOptionPane.showMessageDialog(rootPane, "A quantidade de tanques vinculados não é suficiente para armazenar todos os peixes deste lote!",
+                                    "ERRO", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            loteDAO.salvar(lote);
+                            for (int i = 0; i < tanqueRedes.size(); i++) {
+                                tanqueRedeDAO.salvar(tanqueRedes.get(i));
+                            }
+                            JOptionPane.showMessageDialog(rootPane, "Pronto, o Lote" + lote.getNomeLote()
+                                    + ", foi editado com sucesso!", "Lote", JOptionPane.INFORMATION_MESSAGE);
+                            limparCampos();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "Não foi possível editar este lote!",
+                                "ERRO", JOptionPane.ERROR_MESSAGE);
                         limparCampos();
                     }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Não foi possível editar este lote!",
-                            "ERRO", JOptionPane.ERROR_MESSAGE);
-                    limparCampos();
-                }
 
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Não é possível salvar um lote com tanques vázios!",
+                        "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Não é possível salvar um lote com tanques vázios!",
-                    "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -837,26 +839,26 @@ public class CadastroLote extends javax.swing.JDialog {
             Object object = TelaConsultaEntradaAlevino.exibeTela(alevinoTableModel, "Alevinos");        // TODO add your handling code here:
             Short codigo = Short.valueOf(String.valueOf(object));
             alevino = alevinoDAO.pesquisarCodigo(codigo);
-            if(alevino.isSituacaoEntradaAlevino()==true){
-            tfNumeroEntrada.setText(String.valueOf(alevino.getIdEntradaAlevino()));
-            tfQtdAlevinos.setText(String.valueOf(alevino.getQtdAlevino()));
-            tfFornecedor.setText(String.valueOf(alevino.getFornecedor().getNomeFornecedor()));
-            Date dtNascimento = alevino.getDataNascimentoAlevino();
-            tfDataNascimento.setText(formatar.format(dtNascimento));
-            Date dtEntrada = alevino.getDataEntrada();
-            tfDataEntrada.setText(formatar.format(dtEntrada));
-            tfCusto.setText(String.valueOf(alevino.getValorAlevino() * alevino.getQtdAlevino()));
-            tfLucroEstimado.setText(String.valueOf((5 * alevino.getQtdAlevino()) - alevino.getValorAlevino() * alevino.getQtdAlevino()));
-            qtdAlevinos = alevino.getQtdAlevino();
-            if (lote.getIdLote() == 0) {
-                tfQtdDePeixesNaoVinculados1.setText(String.valueOf(qtdAlevinos));
+            if (alevino.isSituacaoEntradaAlevino() == true) {
+                tfNumeroEntrada.setText(String.valueOf(alevino.getIdEntradaAlevino()));
+                tfQtdAlevinos.setText(String.valueOf(alevino.getQtdAlevino()));
+                tfFornecedor.setText(String.valueOf(alevino.getFornecedor().getNomeFornecedor()));
+                Date dtNascimento = alevino.getDataNascimentoAlevino();
+                tfDataNascimento.setText(formatar.format(dtNascimento));
+                Date dtEntrada = alevino.getDataEntrada();
+                tfDataEntrada.setText(formatar.format(dtEntrada));
+                tfCusto.setText(String.valueOf(alevino.getValorAlevino() * alevino.getQtdAlevino()));
+                tfLucroEstimado.setText(String.valueOf((5 * alevino.getQtdAlevino()) - alevino.getValorAlevino() * alevino.getQtdAlevino()));
+                qtdAlevinos = alevino.getQtdAlevino();
+                if (lote.getIdLote() == 0) {
+                    tfQtdDePeixesNaoVinculados1.setText(String.valueOf(qtdAlevinos));
+                } else {
+                    tanqueRedes.clear();
+                    atualizaTabelaTanqueRede();
+                }
             } else {
-                tanqueRedes.clear();
-                atualizaTabelaTanqueRede();
-            }
-            }else{
-             JOptionPane.showMessageDialog(rootPane, "Esta entrada já está vínculada a outro Lote!",
-                                    "ERRO", JOptionPane.ERROR_MESSAGE);   
+                JOptionPane.showMessageDialog(rootPane, "Esta entrada já está vínculada a outro Lote!",
+                        "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btPesquisaEntradaAlevinoActionPerformed

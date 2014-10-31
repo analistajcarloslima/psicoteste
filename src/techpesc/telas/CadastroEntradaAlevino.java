@@ -420,55 +420,56 @@ public class CadastroEntradaAlevino extends javax.swing.JDialog {
         if (alevino == null) {
             alevino = new Alevino();
         }
-
-        if (alevino.getIdEntradaAlevino() == 0) {
-            alevino.setPesoAlevino(Double.parseDouble(tfPesoAlevino.getText()));
-            alevino.setQtdAlevino(Short.valueOf(tfQtdAlevinos.getText()));
-            alevino.setValorAlevino(Double.parseDouble(tfValorAlevino.getText()));
-            try {
-                dataAtual = formatar.parse(formatar.format(data));
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            alevino.setDataEntrada(dataAtual);
-            try {
-                dataNascimento = formatar.parse(tfDataNascimento.getText());
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            alevino.setDataNascimentoAlevino(dataNascimento);
-            alevino.setFornecedor(fornecedor);
-            alevinoDAO.salvar(alevino);
-            JOptionPane.showMessageDialog(rootPane, "Alevino Cadastrado com Sucesso!");
-            limparCampos();
-        } else {
-            alevino.setPesoAlevino(Double.parseDouble(tfPesoAlevino.getText()));
-            alevino.setQtdAlevino(Short.valueOf(tfQtdAlevinos.getText()));
-            alevino.setValorAlevino(Double.parseDouble(tfValorAlevino.getText()));
-            try {
-                dataAtual = formatar.parse(formatar.format(data));
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            alevino.setDataEntrada(dataAtual);
-            try {
-                dataNascimento = formatar.parse(tfDataNascimento.getText());
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            alevino.setDataNascimentoAlevino(dataNascimento);
-
-            alevino.setFornecedor(fornecedor);
-            if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar a entrada da Data: " + alevino.getDataEntrada()
-                    + " do Fornecedor: " + alevino.getFornecedor().getNomeFornecedor() + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+        if (Util.chkVazio(tfDataNascimento.getText(), tfFornecedor.getText(),tfPesoAlevino.getText()
+        ,tfQtdAlevinos.getText(),tfValorAlevino.getText()) == true) {
+            if (alevino.getIdEntradaAlevino() == 0) {
+                alevino.setPesoAlevino(Double.parseDouble(tfPesoAlevino.getText()));
+                alevino.setQtdAlevino(Short.valueOf(tfQtdAlevinos.getText()));
+                alevino.setValorAlevino(Double.parseDouble(tfValorAlevino.getText()));
+                try {
+                    dataAtual = formatar.parse(formatar.format(data));
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                alevino.setDataEntrada(dataAtual);
+                try {
+                    dataNascimento = formatar.parse(tfDataNascimento.getText());
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                alevino.setDataNascimentoAlevino(dataNascimento);
+                alevino.setFornecedor(fornecedor);
                 alevinoDAO.salvar(alevino);
-                JOptionPane.showMessageDialog(rootPane, "Pronto, A entrada realizada no Data " + alevino.getDataEntrada() + " do Fornecedor: " + alevino.getFornecedor().getNomeFornecedor()
-                        + ", foi editada com sucesso!", "Alevino", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Alevino Cadastrado com Sucesso!");
+                limparCampos();
+            } else {
+                alevino.setPesoAlevino(Double.parseDouble(tfPesoAlevino.getText()));
+                alevino.setQtdAlevino(Short.valueOf(tfQtdAlevinos.getText()));
+                alevino.setValorAlevino(Double.parseDouble(tfValorAlevino.getText()));
+                try {
+                    dataAtual = formatar.parse(formatar.format(data));
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                alevino.setDataEntrada(dataAtual);
+                try {
+                    dataNascimento = formatar.parse(tfDataNascimento.getText());
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroEntradaAlevino.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                alevino.setDataNascimentoAlevino(dataNascimento);
+
+                alevino.setFornecedor(fornecedor);
+                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar a entrada da Data: " + alevino.getDataEntrada()
+                        + " do Fornecedor: " + alevino.getFornecedor().getNomeFornecedor() + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    alevinoDAO.salvar(alevino);
+                    JOptionPane.showMessageDialog(rootPane, "Pronto, A entrada realizada no Data " + alevino.getDataEntrada() + " do Fornecedor: " + alevino.getFornecedor().getNomeFornecedor()
+                            + ", foi editada com sucesso!", "Alevino", JOptionPane.INFORMATION_MESSAGE);
+                }
+                limparCampos();
+
             }
-            limparCampos();
-
         }
-
     }//GEN-LAST:event_btSalvarActionPerformed
     public void limparCampos() {
         tfDataNascimento.setText("");

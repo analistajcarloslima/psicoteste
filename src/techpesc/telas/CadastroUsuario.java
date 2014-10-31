@@ -16,6 +16,7 @@ import techpesc.usuario.Usuario;
 import techpesc.usuario.UsuarioDAO;
 import techpesc.usuario.UsuarioRN;
 import techpesc.usuario.UsuarioTableModel;
+import techpesc.util.Util;
 
 /**
  *
@@ -384,43 +385,43 @@ public class CadastroUsuario extends javax.swing.JDialog {
         if (usuario == null) {
             usuario = new Usuario();
         }
-
-        if (usuarioRN.validaSenha(tfSenha.getText(), tfConfirmaSenha.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "As senhas não conferem, redigite-as");
-        } else {
-            if ((usuarioDAO.pesquisarLogin(tfUsuario.getText()) != null) && (usuario.getIdUsuario() == 0)) {
-                JOptionPane.showMessageDialog(null, "O usuário informado já está cadastrado, por favor, utilize um login diferente!");
+        if (Util.chkVazio(tfConfirmaSenha.getText(), tfSenha.getText(),tfUsuario.getText()) == true) {
+            if (usuarioRN.validaSenha(tfSenha.getText(), tfConfirmaSenha.getText()) == false) {
+                JOptionPane.showMessageDialog(null, "As senhas não conferem, redigite-as");
             } else {
-                if (usuario.getIdUsuario() == 0) {
-                    usuario.setLogin(tfUsuario.getText());
-                    usuario.setSenha(tfSenha.getText());
-                    usuario.setAdministrador(cbAdministrador.isSelected());
-                    usuario.setFuncionario(funcionario);
-                    usuarioDAO.salvar(usuario);
-                    JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com Sucesso!");
-                    limparCampos();
-
+                if ((usuarioDAO.pesquisarLogin(tfUsuario.getText()) != null) && (usuario.getIdUsuario() == 0)) {
+                    JOptionPane.showMessageDialog(null, "O usuário informado já está cadastrado, por favor, utilize um login diferente!");
                 } else {
-                    usuario.setLogin(tfUsuario.getText());
-                    usuario.setSenha(tfSenha.getText());
-                    usuario.setAdministrador(cbAdministrador.isSelected());
-                    if (usuario.getFuncionario().getNomeFuncionario() == null) {
+                    if (usuario.getIdUsuario() == 0) {
+                        usuario.setLogin(tfUsuario.getText());
+                        usuario.setSenha(tfSenha.getText());
+                        usuario.setAdministrador(cbAdministrador.isSelected());
                         usuario.setFuncionario(funcionario);
-                    } else {
-                        usuario.setFuncionario(usuario.getFuncionario());
-                    }
-                    usuarioDAO.salvar(usuario);
-                    if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o Usuário " + usuario.getLogin()
-                            + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
                         usuarioDAO.salvar(usuario);
-                        JOptionPane.showMessageDialog(rootPane, "Pronto,  " + usuario.getLogin()
-                                + ", foi editado com sucesso!", "Usuário", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com Sucesso!");
+                        limparCampos();
+
+                    } else {
+                        usuario.setLogin(tfUsuario.getText());
+                        usuario.setSenha(tfSenha.getText());
+                        usuario.setAdministrador(cbAdministrador.isSelected());
+                        if (usuario.getFuncionario().getNomeFuncionario() == null) {
+                            usuario.setFuncionario(funcionario);
+                        } else {
+                            usuario.setFuncionario(usuario.getFuncionario());
+                        }
+                        usuarioDAO.salvar(usuario);
+                        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o Usuário " + usuario.getLogin()
+                                + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                            usuarioDAO.salvar(usuario);
+                            JOptionPane.showMessageDialog(rootPane, "Pronto,  " + usuario.getLogin()
+                                    + ", foi editado com sucesso!", "Usuário", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        limparCampos();
                     }
-                    limparCampos();
                 }
             }
         }
-
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
@@ -502,7 +503,7 @@ public class CadastroUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_tfUsuarioFocusLost
 
     private void btCadastroLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLoteActionPerformed
-       new CadastroFuncionario().setVisible(true);
+        new CadastroFuncionario().setVisible(true);
     }//GEN-LAST:event_btCadastroLoteActionPerformed
 
     /**

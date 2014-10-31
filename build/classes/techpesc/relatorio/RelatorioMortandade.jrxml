@@ -7,7 +7,8 @@
 		<![CDATA[SELECT
      *
 FROM
-     `lote` lote INNER JOIN `mortandade` mortandade ON lote.`idLote` = mortandade.`lote_idLote`]]>
+     `lote` lote INNER JOIN `mortandade` mortandade ON lote.`idLote` = mortandade.`lote_idLote`
+where $P!{texto}]]>
 	</queryString>
 	<field name="idLote" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

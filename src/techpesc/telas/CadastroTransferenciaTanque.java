@@ -28,6 +28,7 @@ import techpesc.tanquerede.TanqueRedeTableModel;
 import techpesc.transfereTR.Transferencia;
 import techpesc.transfereTR.TransferenciaDAO;
 import techpesc.transfereTR.TransferenciaTableModel;
+import techpesc.util.Util;
 
 /**
  *
@@ -428,29 +429,30 @@ public class CadastroTransferenciaTanque extends javax.swing.JDialog {
         if (transferencia == null) {
             transferencia = new Transferencia();
         }
-        if (transferencia.getIdTransferencia() == 0) {
-            for (int i = 0; i < listaTanquesAntigos.size(); i++) {
-                transferencia.setLote(lote);
-                try {
-                    dataAtual = formatar.parse(formatar.format(data));
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if(Util.chkVazio(tfNomeLote.getText()) == true) {
+            if (transferencia.getIdTransferencia() == 0) {
+                for (int i = 0; i < listaTanquesAntigos.size(); i++) {
+                    transferencia.setLote(lote);
+                    try {
+                        dataAtual = formatar.parse(formatar.format(data));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    transferencia.setIdTanqueAntigo(listaTanquesAntigos.get(i).getIdTanqueRede());
+                    transferencia.setNomeTanqueRedeAntigo(listaTanquesAntigos.get(i).getNomeTanqueRede());
+                    transferencia.setIdTanqueNovo(listaTanquesNovos.get(i).getIdTanqueRede());
+                    transferencia.setNomeTanqueRedeNovo(listaTanquesNovos.get(i).getNomeTanqueRede());
+                    transferencia.setDataTransferencia(dataAtual);
+                    tanqueredeDAO.salvar(listaTanquesAntigos.get(i));
+                    transferenciaDAO.salvar(transferencia);
+                    transferencia.setIdTransferencia(Short.valueOf("0"));
                 }
-                transferencia.setIdTanqueAntigo(listaTanquesAntigos.get(i).getIdTanqueRede());
-                transferencia.setNomeTanqueRedeAntigo(listaTanquesAntigos.get(i).getNomeTanqueRede());
-                transferencia.setIdTanqueNovo(listaTanquesNovos.get(i).getIdTanqueRede());
-                transferencia.setNomeTanqueRedeNovo(listaTanquesNovos.get(i).getNomeTanqueRede());
-                transferencia.setDataTransferencia(dataAtual);
-                tanqueredeDAO.salvar(listaTanquesAntigos.get(i));
-                transferenciaDAO.salvar(transferencia);
-                transferencia.setIdTransferencia(Short.valueOf("0"));
+                JOptionPane.showMessageDialog(rootPane, "Transferência salva com Sucesso!");
+                limparCampos();
+            } else {
+
             }
-            JOptionPane.showMessageDialog(rootPane, "Transferência salva com Sucesso!");
-            limparCampos();
-        } else {
-
         }
-
     }//GEN-LAST:event_btSalvarActionPerformed
     public void limparCampos() {
         lote = new Lote();
