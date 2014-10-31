@@ -197,6 +197,11 @@ public class CadastroUsuario extends javax.swing.JDialog {
         );
 
         tfUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfUsuarioFocusLost(evt);
+            }
+        });
 
         jLabel44.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
@@ -412,15 +417,15 @@ public class CadastroUsuario extends javax.swing.JDialog {
             tfSenha.setText("");
             tfConfirmaSenha.setText("");
             cbAdministrador.setSelected(usuario.isAdministrador());
-            if (usuario.getFuncionario()==null) {
+            if (usuario.getFuncionario() == null) {
                 tfFuncionario.setVisible(false);
                 btPesquisarFuncionario.setVisible(false);
                 jLFuncionario.setVisible(false);
-            }else{
+            } else {
                 tfFuncionario.setVisible(true);
                 btPesquisarFuncionario.setVisible(true);
                 jLFuncionario.setVisible(true);
-            tfFuncionario.setText(usuario.getFuncionario().getNomeFuncionario());
+                tfFuncionario.setText(usuario.getFuncionario().getNomeFuncionario());
             }
             btExcluir3.setEnabled(true);
         }
@@ -462,6 +467,22 @@ public class CadastroUsuario extends javax.swing.JDialog {
         funcionario = funcionarioDAO.pesquisarCodigo(codigo);
         tfFuncionario.setText(funcionario.getNomeFuncionario());
     }//GEN-LAST:event_btPesquisarFuncionarioActionPerformed
+
+    private void tfUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsuarioFocusLost
+
+        List<Usuario> usuarios = new ArrayList<>();
+
+        usuarios = usuarioDAO.listar();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (tfUsuario.getText().equals(usuarios.get(i).getLogin())) {
+                JOptionPane.showMessageDialog(rootPane, "Já existe um funcionário com este usuário, use outro!",
+                        "ERRO", JOptionPane.ERROR_MESSAGE);
+                tfUsuario.setText("");
+                tfUsuario.requestFocus();
+
+            }
+        }
+    }//GEN-LAST:event_tfUsuarioFocusLost
 
     /**
      * @param args the command line arguments
