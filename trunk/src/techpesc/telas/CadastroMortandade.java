@@ -25,6 +25,7 @@ import techpesc.mortandade.MortandadeDAO;
 import techpesc.mortandade.MortandadeTableModel;
 import techpesc.tanquerede.TanqueRede;
 import techpesc.tanquerede.TanqueRedeTableModel;
+import techpesc.util.Util;
 
 /**
  *
@@ -361,6 +362,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
         if (mortandade == null) {
             mortandade = new Mortandade();
         }
+        if (Util.chkVazio(tfNomeLote.getText()) == true) {
         if (mortandade.getIdMortandade() == 0) {
             for (int i = 0; i < listaTanquesMortos.size(); i++) {
                 mortandade.setLote(lote);
@@ -401,6 +403,7 @@ public class CadastroMortandade extends javax.swing.JDialog {
                         + ", foi editado com sucesso!", "Tanque Rede", JOptionPane.INFORMATION_MESSAGE);
             }
             limparCampos();
+        }
         }
     }//GEN-LAST:event_btSalvarActionPerformed
     public void limparCampos() {

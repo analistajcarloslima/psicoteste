@@ -54,13 +54,10 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jSeparator17" min="-2" pref="586" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jSeparator2" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   </Group>
+                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
@@ -426,7 +423,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
-                <StringItem index="0" value="----"/>
+                <StringItem index="0" value="-----"/>
                 <StringItem index="1" value="Alevino"/>
                 <StringItem index="2" value="Ra&#xe7;&#xe3;o"/>
                 <StringItem index="3" value="Alevino/Ra&#xe7;&#xe3;o"/>

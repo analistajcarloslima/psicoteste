@@ -243,7 +243,7 @@ public class CadastroFornecedor extends javax.swing.JDialog {
             }
         });
 
-        jcProduto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "----", "Alevino", "Ração", "Alevino/Ração", "Malha", "Medicamentos", "Outros" }));
+        jcProduto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "Alevino", "Ração", "Alevino/Ração", "Malha", "Medicamentos", "Outros" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -254,11 +254,9 @@ public class CadastroFornecedor extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator2)
-                        .addGap(40, 40, 40))))
+                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2))
+                .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel41)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -359,26 +357,28 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         if (fornecedor == null) {
             fornecedor = new Fornecedor();
         }
-        if (fornecedor.getIdFornecedor() == 0) {
-            fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
-            fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
-            fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
-            fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
-            fornecedorDAO.salvar(fornecedor);
-            JOptionPane.showMessageDialog(rootPane, "Fornecedor Cadastrado com Sucesso!");
-            limparCampos();
-        } else {
-            fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
-            fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
-            fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
-            fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
-            if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o fornecedor " + fornecedor.getNomeFornecedor()
-                    + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+        if (Util.chkVazio(tfCNPJ.getText(), tfContato.getText(), tfNomeCompleto.getText(), jcProduto.getSelectedItem().toString()) == true) {
+            if (fornecedor.getIdFornecedor() == 0) {
+                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
+                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
+                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
+                fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
                 fornecedorDAO.salvar(fornecedor);
-                JOptionPane.showMessageDialog(rootPane, "Pronto,  " + fornecedor.getNomeFornecedor()
-                        + ", foi editado com sucesso!", "Fornecedor", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Fornecedor Cadastrado com Sucesso!");
+                limparCampos();
+            } else {
+                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
+                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
+                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
+                fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
+                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o fornecedor " + fornecedor.getNomeFornecedor()
+                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    fornecedorDAO.salvar(fornecedor);
+                    JOptionPane.showMessageDialog(rootPane, "Pronto,  " + fornecedor.getNomeFornecedor()
+                            + ", foi editado com sucesso!", "Fornecedor", JOptionPane.INFORMATION_MESSAGE);
+                }
+                limparCampos();
             }
-            limparCampos();
         }
 
     }//GEN-LAST:event_btSalvarActionPerformed
@@ -426,15 +426,15 @@ public class CadastroFornecedor extends javax.swing.JDialog {
     }//GEN-LAST:event_btExcluir3ActionPerformed
 
     private void btSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvar1ActionPerformed
-limparCampos();        // TODO add your handling code here:
+        limparCampos();        // TODO add your handling code here:
     }//GEN-LAST:event_btSalvar1ActionPerformed
 
     private void tfCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCNPJFocusLost
-       if (!Util.validaCNPJ(tfCNPJ.getText().toString().replaceAll("\\D*", ""))) {
+        if (!Util.validaCNPJ(tfCNPJ.getText().toString().replaceAll("\\D*", ""))) {
             JOptionPane.showMessageDialog(rootPane, "Este CNPJ não é válido, redigite!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
             tfCNPJ.setText("");
-       }
+        }
     }//GEN-LAST:event_tfCNPJFocusLost
 
     private void tfContatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfContatoFocusLost

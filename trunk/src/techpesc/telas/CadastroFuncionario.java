@@ -385,42 +385,44 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         if (funcionario == null) {
             funcionario = new Funcionario();
         }
-        if (funcionario.getIdFuncionario() == 0) {
-            funcionario.setNomeFuncionario(tfNomeCompleto.getText());
-            funcionario.setCpf(tfCpf.getText().replaceAll("\\D", ""));
-            funcionario.setContato(tfContato.getText());
-            funcionario.setSalario(Double.parseDouble(tfSalario.getText()));
-            SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                data = formatar.parse(tfDataNascimento.getText());
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            funcionario.setDataNascimento(data);
-            funcionarioDAO.salvar(funcionario);
-            JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com Sucesso!");
-            limparCampos();
-        } else {
-            funcionario.setNomeFuncionario(tfNomeCompleto.getText());
-            funcionario.setCpf(tfCpf.getText().replaceAll("\\D", ""));
-            funcionario.setContato(tfContato.getText());
-            funcionario.setSalario(Double.parseDouble(tfSalario.getText()));
-            SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                data = formatar.parse(tfDataNascimento.getText());
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            funcionario.setDataNascimento(data);
-            if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o funcionário " + funcionario.getNomeFuncionario()
-                    + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+        if (Util.chkVazio(tfContato.getText(), tfCpf.getText(),tfDataNascimento.getText()
+        ,tfNomeCompleto.getText(),tfSalario.getText()) == true) {
+            if (funcionario.getIdFuncionario() == 0) {
+                funcionario.setNomeFuncionario(tfNomeCompleto.getText());
+                funcionario.setCpf(tfCpf.getText().replaceAll("\\D", ""));
+                funcionario.setContato(tfContato.getText());
+                funcionario.setSalario(Double.parseDouble(tfSalario.getText()));
+                SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = formatar.parse(tfDataNascimento.getText());
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                funcionario.setDataNascimento(data);
                 funcionarioDAO.salvar(funcionario);
-                JOptionPane.showMessageDialog(rootPane, "Pronto,  " + funcionario.getNomeFuncionario()
-                        + ", foi editado com sucesso!", "Funcionario", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com Sucesso!");
+                limparCampos();
+            } else {
+                funcionario.setNomeFuncionario(tfNomeCompleto.getText());
+                funcionario.setCpf(tfCpf.getText().replaceAll("\\D", ""));
+                funcionario.setContato(tfContato.getText());
+                funcionario.setSalario(Double.parseDouble(tfSalario.getText()));
+                SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    data = formatar.parse(tfDataNascimento.getText());
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                funcionario.setDataNascimento(data);
+                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o funcionário " + funcionario.getNomeFuncionario()
+                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    funcionarioDAO.salvar(funcionario);
+                    JOptionPane.showMessageDialog(rootPane, "Pronto,  " + funcionario.getNomeFuncionario()
+                            + ", foi editado com sucesso!", "Funcionario", JOptionPane.INFORMATION_MESSAGE);
+                }
+                limparCampos();
             }
-            limparCampos();
         }
-
     }//GEN-LAST:event_btSalvarActionPerformed
     public void limparCampos() {
         tfCpf.setText("");
@@ -470,7 +472,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_btSalvar1ActionPerformed
 
     private void tfCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCpfFocusLost
-               if (!Util.CPF(tfCpf.getText().toString().replaceAll("\\D*", ""))) {
+        if (!Util.CPF(tfCpf.getText().toString().replaceAll("\\D*", ""))) {
             JOptionPane.showMessageDialog(rootPane, "Este CPF não é válido, redigite!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
             tfCpf.setText("");
@@ -478,7 +480,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_tfCpfFocusLost
 
     private void tfDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDataNascimentoFocusLost
-            if (Util.dataValida(tfDataNascimento.getText().toString())==false) {
+        if (Util.dataValida(tfDataNascimento.getText().toString()) == false) {
             JOptionPane.showMessageDialog(rootPane, "Data inválida, redigite!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
             tfDataNascimento.setText("");

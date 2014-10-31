@@ -35,6 +35,7 @@ import techpesc.tanquerede.TanqueRedeTableModel;
 import techpesc.transfereTR.Transferencia;
 import techpesc.transfereTR.TransferenciaDAO;
 import techpesc.transfereTR.TransferenciaTableModel;
+import techpesc.util.Util;
 import techpesc.venda.Venda;
 import techpesc.venda.VendaDAO;
 import techpesc.venda.VendaTableModel;
@@ -48,7 +49,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     Lote lote = new Lote();
     Venda venda = new Venda();
     VendaDAO vendaDAO = new VendaDAO();
-    
+
     Cliente cliente = new Cliente();
     ClienteRN clienteRN = new ClienteRN();
 
@@ -573,48 +574,49 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         if (venda == null) {
             venda = new Venda();
         }
-        if (venda.getIdVenda() == 0) {
-            if (!listaTanqueRedesVendidos.isEmpty()) {
-                for (int i = 0; i < listaTanqueRedesVendidos.size(); i++) {
-                    listaTanqueRedesVendidos.get(i).setQuantidadePeixesVinculados(0);
-                    listaTanqueRedesVendidos.get(i).setMortandadeTanqueRede(0);
+        if (Util.chkVazio(tfNomeLote.getText(), tfCliente.getText()) == true) {
+            if (venda.getIdVenda() == 0) {
+                if (!listaTanqueRedesVendidos.isEmpty()) {
+                    for (int i = 0; i < listaTanqueRedesVendidos.size(); i++) {
+                        listaTanqueRedesVendidos.get(i).setQuantidadePeixesVinculados(0);
+                        listaTanqueRedesVendidos.get(i).setMortandadeTanqueRede(0);
+                    }
+                    venda.setLote(lote);
+                    venda.setCliente(cliente);
+                    venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
+                    venda.setTanquesVendidos(listaTanqueRedesVendidos);
+                    try {
+                        dataAtual = formatar.parse(formatar.format(data));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    venda.setDataVenda(dataAtual);
+                    vendaDAO.salvar(venda);
+                    limparCampos();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Não foi selecionado nenhum tanque para esta venda!",
+                            "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
-                venda.setLote(lote);
-                venda.setCliente(cliente);
-                venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
-                venda.setTanquesVendidos(listaTanqueRedesVendidos);
-                try {
-                    dataAtual = formatar.parse(formatar.format(data));
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                venda.setDataVenda(dataAtual);
-                vendaDAO.salvar(venda);
-                limparCampos();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Não foi selecionado nenhum tanque para esta venda!",
-                        "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            if (!listaTanqueRedesVendidos.isEmpty()) {
-                venda.setLote(lote);
-                venda.setCliente(cliente);
-                venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
-                venda.setTanquesVendidos(listaTanqueRedesVendidos);
-                try {
-                    dataAtual = formatar.parse(formatar.format(data));
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                if (!listaTanqueRedesVendidos.isEmpty()) {
+                    venda.setLote(lote);
+                    venda.setCliente(cliente);
+                    venda.setValorVendaTanqueRede(Double.parseDouble(tfValorTotal.getText()));
+                    venda.setTanquesVendidos(listaTanqueRedesVendidos);
+                    try {
+                        dataAtual = formatar.parse(formatar.format(data));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    venda.setDataVenda(dataAtual);
+                    vendaDAO.salvar(venda);
+                    limparCampos();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Não foi selecionado nenhum tanque para esta venda!",
+                            "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
-                venda.setDataVenda(dataAtual);
-                vendaDAO.salvar(venda);
-                limparCampos();
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Não foi selecionado nenhum tanque para esta venda!",
-                        "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         }
-
 
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -632,7 +634,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         lote = null;
         venda = null;
         cliente = null;
-        
+
         tfValorTotal.setText("0,0");
         atualizaTabelaTanqueRedeLote();
         atualizaTabelaTanqueRedeNovoTR();
@@ -705,43 +707,43 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
         int row = tbTanqueRedeLote.getSelectedRow();
         if (lote != null) {
             if (cliente != null) {
-            if (row > -1) {
-                if (JOptionPane.showConfirmDialog(null, "Você deseja realmente vender os peixes do Tanque.: " + tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getNomeTanqueRede()
-                        + " ?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
-                    String valor = (JOptionPane.showInputDialog("Quantidade de Peixes no T.R. Selecionado: " + tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getQuantidadePeixesVinculados() + " Peixes\n\n"
-                            + "Digite o valor unitário de um peixe T.R.: ", 0.0));
-                    if (!valor.isEmpty()) {
-                        valorVenda = Double.parseDouble(valor);
-                        if ((valorVenda > 0.0)) {
+                if (row > -1) {
+                    if (JOptionPane.showConfirmDialog(null, "Você deseja realmente vender os peixes do Tanque.: " + tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getNomeTanqueRede()
+                            + " ?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                        String valor = (JOptionPane.showInputDialog("Quantidade de Peixes no T.R. Selecionado: " + tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getQuantidadePeixesVinculados() + " Peixes\n\n"
+                                + "Digite o valor unitário de um peixe T.R.: ", 0.0));
+                        if (!valor.isEmpty()) {
                             valorVenda = Double.parseDouble(valor);
-                            tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).setSituacaoTanqueRede(true);
-                            listaTanqueRedesVendidos.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
-                            valorVendaLista.add(valorVenda * tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getQuantidadePeixesVinculados());
-                            tanqueRedesNovoTR.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
-                            tanqueRedesLote.remove(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
-                            atualizaTabelaTanqueRedeNovoTR();
-                            atualizaTabelaTanqueRedeLote();
-                            somaVendaTotal();
+                            if ((valorVenda > 0.0)) {
+                                valorVenda = Double.parseDouble(valor);
+                                tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).setSituacaoTanqueRede(true);
+                                listaTanqueRedesVendidos.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
+                                valorVendaLista.add(valorVenda * tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getQuantidadePeixesVinculados());
+                                tanqueRedesNovoTR.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
+                                tanqueRedesLote.remove(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
+                                atualizaTabelaTanqueRedeNovoTR();
+                                atualizaTabelaTanqueRedeLote();
+                                somaVendaTotal();
+                            } else {
+                                JOptionPane.showMessageDialog(rootPane, "O valor digitado da venda do Tanque foi 0.0, sendo assim, nenhum T.R foi vendido!",
+                                        "ERRO", JOptionPane.ERROR_MESSAGE);
+                            }
                         } else {
-                            JOptionPane.showMessageDialog(rootPane, "O valor digitado da venda do Tanque foi 0.0, sendo assim, nenhum T.R foi vendido!",
+                            JOptionPane.showMessageDialog(rootPane, "Não foi digitado o valor da venda do Tanque, sendo assim, nenhum T.R foi vendido!",
                                     "ERRO", JOptionPane.ERROR_MESSAGE);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Não foi digitado o valor da venda do Tanque, sendo assim, nenhum T.R foi vendido!",
+                        JOptionPane.showMessageDialog(rootPane, "A transferência de tanques não foi realizada!",
                                 "ERRO", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "A transferência de tanques não foi realizada!",
+                    JOptionPane.showMessageDialog(rootPane, "Selecione o Tanque Rede!",
                             "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Selecione o Tanque Rede!",
+                JOptionPane.showMessageDialog(rootPane, "É obrigatório vincular um cliente!",
                         "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-            } else {
-            JOptionPane.showMessageDialog(rootPane, "É obrigatório vincular um cliente!",
-                    "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
         } else {
             JOptionPane.showMessageDialog(rootPane, "É obrigatório vincular um lote!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -839,7 +841,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     }//GEN-LAST:event_btExcluirTanqueRede1ActionPerformed
 
     private void btPesquisarNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarNome5ActionPerformed
-      ClienteDAO clienteDAO = new ClienteDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
         cliente = new Cliente();
 
         ClienteTableModel clienteTM = new ClienteTableModel(clienteDAO.listar());
@@ -858,7 +860,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
     }//GEN-LAST:event_btCadastroLoteActionPerformed
 
     private void btCadastroLote1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroLote1ActionPerformed
-       new CadastroCliente().setVisible(true);
+        new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_btCadastroLote1ActionPerformed
 
     /**

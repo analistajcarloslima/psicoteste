@@ -433,38 +433,40 @@ public class CadastroCliente extends javax.swing.JDialog {
         if (cliente == null) {
             cliente = new Cliente();
         }
-
-        if (cliente.getIdCliente() == 0) {
-            cliente.setCepCliente(tfCEP.getText().replaceAll("\\D", ""));
-            cliente.setCidadeCliente(tfCidade.getText());
-            cliente.setContatoCliente(tfContato.getText().replaceAll("\\D", ""));
-            cliente.setCpfCliente(tfCPF.getText().replaceAll("\\D", ""));
-            cliente.setEnderecoCliente(tfEndereco.getText());
-            cliente.setEstadoCliente(jCEstado.getSelectedItem().toString());
-            cliente.setNomeCliente(tfNome.getText());
-            clienteDAO.salvar(cliente);
-            JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado com Sucesso!");
-            limparCampos();
-        } else {
-            cliente.setCepCliente(tfCEP.getText().replaceAll("\\D", ""));
-            cliente.setCidadeCliente(tfCidade.getText());
-            cliente.setContatoCliente(tfContato.getText().replaceAll("\\D", ""));
-            cliente.setCpfCliente(tfCPF.getText().replaceAll("\\D", ""));
-            cliente.setEnderecoCliente(tfEndereco.getText());
-            cliente.setEstadoCliente(jCEstado.getSelectedItem().toString());
-            cliente.setNomeCliente(tfNome.getText());
-            if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o cliente: " + cliente.getNomeCliente()
-                    + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+        if (Util.chkVazio(tfCEP.getText(), tfCPF.getText(),tfCidade.getText(),tfContato.getText(),
+                tfEndereco.getText(),tfNome.getText(),jCEstado.getSelectedItem().toString()) == true) {
+            if (cliente.getIdCliente() == 0) {
+                cliente.setCepCliente(tfCEP.getText().replaceAll("\\D", ""));
+                cliente.setCidadeCliente(tfCidade.getText());
+                cliente.setContatoCliente(tfContato.getText().replaceAll("\\D", ""));
+                cliente.setCpfCliente(tfCPF.getText().replaceAll("\\D", ""));
+                cliente.setEnderecoCliente(tfEndereco.getText());
+                cliente.setEstadoCliente(jCEstado.getSelectedItem().toString());
+                cliente.setNomeCliente(tfNome.getText());
                 clienteDAO.salvar(cliente);
-                JOptionPane.showMessageDialog(rootPane, "Pronto, O cliente: " + cliente.getNomeCliente() + "foi editado com sucesso!", "Alevino", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado com Sucesso!");
+                limparCampos();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "A edição não foi realizada!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                cliente.setCepCliente(tfCEP.getText().replaceAll("\\D", ""));
+                cliente.setCidadeCliente(tfCidade.getText());
+                cliente.setContatoCliente(tfContato.getText().replaceAll("\\D", ""));
+                cliente.setCpfCliente(tfCPF.getText().replaceAll("\\D", ""));
+                cliente.setEnderecoCliente(tfEndereco.getText());
+                cliente.setEstadoCliente(jCEstado.getSelectedItem().toString());
+                cliente.setNomeCliente(tfNome.getText());
+                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o cliente: " + cliente.getNomeCliente()
+                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    clienteDAO.salvar(cliente);
+                    JOptionPane.showMessageDialog(rootPane, "Pronto, O cliente: " + cliente.getNomeCliente() + "foi editado com sucesso!", "Alevino", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "A edição não foi realizada!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                }
+                limparCampos();
+
             }
-            limparCampos();
-
         }
-
     }//GEN-LAST:event_btSalvarActionPerformed
+
     public void limparCampos() {
         tfCEP.setText("");
         tfCPF.setText("");
