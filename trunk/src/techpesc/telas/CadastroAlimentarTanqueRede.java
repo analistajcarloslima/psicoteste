@@ -31,6 +31,7 @@ import techpesc.tanquerede.TanqueRedeTableModel;
 import techpesc.transfereTR.Transferencia;
 import techpesc.transfereTR.TransferenciaDAO;
 import techpesc.transfereTR.TransferenciaTableModel;
+import techpesc.util.Util;
 
 /**
  *
@@ -459,19 +460,19 @@ public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btPesquisarNome4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel42))
-                    .addComponent(btPesquisarNome4)
-                    .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btPesquisarNome5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastroLote, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btPesquisarNome5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfRacao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel45))
-                    .addComponent(btCadastroEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btCadastroEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
@@ -511,27 +512,31 @@ public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
         if (transferencia == null) {
             transferencia = new Transferencia();
         }
-        if ((!listaTanqueRedesAlimentados.isEmpty()) && (transferencia.getIdTransferencia() == 0)) {
-            for (int i = 0; i < listaTanqueRedesAlimentados.size(); i++) {
-                lote.setTanquesRede(tanqueSemAlteracao);
-                alimentacao.setLote(lote);
-                alimentacao.setRacao(racao);
-                alimentacao.setIdAlimentacao(listaTanqueRedesAlimentados.get(i).getIdTanqueRede());
-                alimentacao.setNomeTanqueRede(listaTanqueRedesAlimentados.get(i).getNomeTanqueRede());
-                alimentacao.setQuantidadeAlimentacao(alimentacaoFeita.get(i));
-                try {
-                    dataAtual = formatar.parse(formatar.format(data));
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if (Util.chkVazio(tfNomeLote.getText(), tfRacao.getText()) == true) {
+            if ((!listaTanqueRedesAlimentados.isEmpty()) && (transferencia.getIdTransferencia() == 0)) {
+                for (int i = 0; i < listaTanqueRedesAlimentados.size(); i++) {
+                    lote.setTanquesRede(tanqueSemAlteracao);
+                    alimentacao.setLote(lote);
+                    alimentacao.setRacao(racao);
+                    alimentacao.setIdAlimentacao(listaTanqueRedesAlimentados.get(i).getIdTanqueRede());
+                    alimentacao.setNomeTanqueRede(listaTanqueRedesAlimentados.get(i).getNomeTanqueRede());
+                    alimentacao.setQuantidadeAlimentacao(alimentacaoFeita.get(i));
+                    try {
+                        dataAtual = formatar.parse(formatar.format(data));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    alimentacao.setDataAlimentacao(dataAtual);
+                    alimentacaoDAO.salvar(alimentacao);
+                    alimentacao.setIdAlimentacao(Short.valueOf("0"));
                 }
-                alimentacao.setDataAlimentacao(dataAtual);
-                alimentacaoDAO.salvar(alimentacao);
-                alimentacao.setIdAlimentacao(Short.valueOf("0"));
-            }
-            JOptionPane.showMessageDialog(rootPane, "Pronto, a alimentação dos tanques redes selecionados foram realizadas com sucesso!");
-            limparCampos();
-        } else {
+                JOptionPane.showMessageDialog(rootPane, "Pronto, a alimentação dos tanques redes selecionados foram realizadas com sucesso!");
+                limparCampos();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Só é possível salvar uma alimentação se houver algum tanque alimentado!",
+                        "ERRO", JOptionPane.ERROR_MESSAGE);
 
+            }
         }
 
 
@@ -710,7 +715,7 @@ public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
     }//GEN-LAST:event_btCadastroLoteActionPerformed
 
     private void btCadastroEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroEstoqueActionPerformed
-         new CadastroEstoque().setVisible(true);
+        new CadastroEstoque().setVisible(true);
     }//GEN-LAST:event_btCadastroEstoqueActionPerformed
 
     /**
@@ -756,7 +761,6 @@ public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlimentar;
-    private javax.swing.JButton btCadastraEntradaAlevino;
     private javax.swing.JButton btCadastroEstoque;
     private javax.swing.JButton btCadastroLote;
     private javax.swing.JButton btPesquisar;

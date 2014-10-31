@@ -42,6 +42,8 @@ import techpesc.util.Util;
  */
 public class TelaRelatorioMortandade extends javax.swing.JDialog {
 
+    LoteDAO loteDAO = new LoteDAO();
+
     /**
      * Creates new form Cadastro_de_Funcionário
      */
@@ -49,7 +51,7 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/techpesc/imagens/peixe.png")).getImage());
         setModal(true);
-        LoteDAO loteDAO = new LoteDAO();
+
         for (int i = 0; i < loteDAO.listar().size(); i++) {
             jcTutorial.addItem(loteDAO.listar().get(i).getNomeLote());
         }
@@ -73,10 +75,10 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         jcTutorial = new javax.swing.JComboBox();
         btIniciar = new javax.swing.JButton();
         btVoltarMenu = new javax.swing.JButton();
-        tfPrevisaoAbate = new javax.swing.JFormattedTextField();
+        tfMortesIncial = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tfPrevisaoAbate1 = new javax.swing.JFormattedTextField();
+        tfMortesFinal = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tutoriais");
@@ -135,14 +137,14 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         });
 
         try {
-            tfPrevisaoAbate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfMortesIncial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfPrevisaoAbate.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfPrevisaoAbate.addFocusListener(new java.awt.event.FocusAdapter() {
+        tfMortesIncial.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfMortesIncial.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                tfPrevisaoAbateFocusLost(evt);
+                tfMortesIncialFocusLost(evt);
             }
         });
 
@@ -157,14 +159,14 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         jLabel5.setText("Até.:");
 
         try {
-            tfPrevisaoAbate1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfMortesFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfPrevisaoAbate1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfPrevisaoAbate1.addFocusListener(new java.awt.event.FocusAdapter() {
+        tfMortesFinal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfMortesFinal.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                tfPrevisaoAbate1FocusLost(evt);
+                tfMortesFinalFocusLost(evt);
             }
         });
 
@@ -172,16 +174,14 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator17)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator17))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btVoltarMenu)
                         .addGap(61, 61, 61)
                         .addComponent(btIniciar)
@@ -201,11 +201,11 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcTutorial, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tfPrevisaoAbate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfMortesIncial, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfPrevisaoAbate1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfMortesFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,23 +227,24 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
                 .addComponent(jcTutorial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfPrevisaoAbate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfMortesIncial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
-                    .addComponent(tfPrevisaoAbate1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMortesFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btIniciar)
-                    .addComponent(btVoltarMenu)))
+                    .addComponent(btVoltarMenu))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,33 +259,57 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         JasperReport pathjrxml;
         HashMap parametros = new HashMap();
         String sql = "", texto = "";
-        
-       // LoteDAO loteDAO = new LoteDAO();
-            
-//            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);          
-            
-  //          sql += " and lote.idLote=" + l.getIdLote();
-      //      sql += " order by lote.nomeLote";
-    //        parametros.put("texto", sql);
-            
-            
-        Connection connection = new ConnectionFactory().getConnection();
-        
-        
-        try {
-                JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);
-                viewer.setSize(1000, 600);
-                viewer.setLocationRelativeTo(null);
-                viewer.setModal(true);
-                pathjrxml = JasperCompileManager.compileReport("C:\\Documents and Settings\\Usuario\\Meus documentos\\NetBeansProjects\\psicoteste\\src\\techpesc\\relatorio\\RelatorioMortandade.jrxml");
-                JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
-                        connection);
-                JasperViewer jv = new JasperViewer(printReport, false);
-                viewer.getContentPane().add(jv.getContentPane());
-                viewer.setVisible(true);
-            } catch (JRException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        if (jcTutorial.getSelectedIndex() != 0) {
+            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);
+            sql += " lote.idLote=" + l.getIdLote();            
+        }
+        if(!tfMortesFinal.getText().equals("  /  /    ")){
+            if(!sql.equals("")){
+                sql += "and";
             }
+            
+            String dataInicial = "", dataFinal = "";
+            try {
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                java.sql.Date data = new java.sql.Date(format.parse(tfMortesIncial.getText()).getTime());
+                dataInicial = String.valueOf(data);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                java.sql.Date data = new java.sql.Date(format.parse(tfMortesFinal.getText()).getTime());
+                dataFinal = String.valueOf(data);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            
+            sql+= " mortandade.dataMortandade between "+dataInicial+" and "+dataFinal;
+        }
+        
+        
+        if(!sql.equals("")){
+            sql += " order by lote.nomeLote";
+        }
+        parametros.put("texto", sql);
+
+        Connection connection = new ConnectionFactory().getConnection();
+
+        try {
+            JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);
+            viewer.setSize(1000, 600);
+            viewer.setLocationRelativeTo(null);
+            viewer.setModal(true);
+            pathjrxml = JasperCompileManager.compileReport("C:\\Documents and Settings\\Usuario\\Meus documentos\\NetBeansProjects\\psicoteste\\src\\techpesc\\relatorio\\RelatorioMortandade.jrxml");
+            JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
+                    connection);
+            JasperViewer jv = new JasperViewer(printReport, false);
+            viewer.getContentPane().add(jv.getContentPane());
+            viewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btIniciarActionPerformed
 
     private void jcTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTutorialActionPerformed
@@ -296,13 +321,13 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btVoltarMenuActionPerformed
 
-    private void tfPrevisaoAbateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPrevisaoAbateFocusLost
+    private void tfMortesIncialFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMortesIncialFocusLost
 
-    }//GEN-LAST:event_tfPrevisaoAbateFocusLost
+    }//GEN-LAST:event_tfMortesIncialFocusLost
 
-    private void tfPrevisaoAbate1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPrevisaoAbate1FocusLost
+    private void tfMortesFinalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfMortesFinalFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfPrevisaoAbate1FocusLost
+    }//GEN-LAST:event_tfMortesFinalFocusLost
 
     /**
      * @param args the command line arguments
@@ -382,7 +407,7 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JComboBox jcTutorial;
-    private javax.swing.JFormattedTextField tfPrevisaoAbate;
-    private javax.swing.JFormattedTextField tfPrevisaoAbate1;
+    private javax.swing.JFormattedTextField tfMortesFinal;
+    private javax.swing.JFormattedTextField tfMortesIncial;
     // End of variables declaration//GEN-END:variables
 }
