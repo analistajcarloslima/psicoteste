@@ -108,9 +108,9 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         btIniciar.setBackground(new java.awt.Color(255, 255, 255));
         btIniciar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/confirmar.png"))); // NOI18N
-        btIniciar.setText("Iniciar");
-        btIniciar.setToolTipText("Entrar");
+        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/imprimir.png"))); // NOI18N
+        btIniciar.setText("Imprimir");
+        btIniciar.setToolTipText("Imprimir");
         btIniciar.setContentAreaFilled(false);
         btIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btIniciar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -261,11 +261,11 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         String sql = "", texto = "";
         if (jcTutorial.getSelectedIndex() != 0) {
             Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);
-            sql += " lote.idLote=" + l.getIdLote();            
+            sql += "lote.idLote=" + l.getIdLote();            
         }
         if(!tfMortesFinal.getText().equals("  /  /    ")){
             if(!sql.equals("")){
-                sql += "and";
+                sql += " and";
             }
             
             String dataInicial = "", dataFinal = "";
@@ -285,7 +285,7 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
                 e.printStackTrace();
             }
             
-            sql+= " mortandade.dataMortandade between "+dataInicial+" and "+dataFinal;
+            sql+= " mortandade.dataMortandade between '"+dataInicial+" 00:00:00'"+" and '"+dataFinal+" 23:59:59"+"'";
         }
         
         
@@ -301,8 +301,8 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
             viewer.setSize(1000, 600);
             viewer.setLocationRelativeTo(null);
             viewer.setModal(true);
-            pathjrxml = JasperCompileManager.compileReport("C:\\Documents and Settings\\Usuario\\Meus documentos\\NetBeansProjects\\psicoteste\\src\\techpesc\\relatorio\\RelatorioMortandade.jrxml");
-            JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
+         //   pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/RelatorioMortandade.jrxml");
+            JasperPrint printReport = JasperFillManager.fillReport("src/techpesc/relatorio/RelatorioMortandade.jasper", parametros,
                     connection);
             JasperViewer jv = new JasperViewer(printReport, false);
             viewer.getContentPane().add(jv.getContentPane());

@@ -99,9 +99,9 @@ public class TelaRelatorioTanques extends javax.swing.JDialog {
         btIniciar.setBackground(new java.awt.Color(255, 255, 255));
         btIniciar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/confirmar.png"))); // NOI18N
-        btIniciar.setText("Iniciar");
-        btIniciar.setToolTipText("Entrar");
+        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/imprimir.png"))); // NOI18N
+        btIniciar.setText("Imprimir");
+        btIniciar.setToolTipText("Imprimir");
         btIniciar.setContentAreaFilled(false);
         btIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btIniciar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
