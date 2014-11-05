@@ -465,7 +465,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-    new CadastroCliente().setVisible(true);
+    new CadastroEntradaAlevino().setVisible(true);
 
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 

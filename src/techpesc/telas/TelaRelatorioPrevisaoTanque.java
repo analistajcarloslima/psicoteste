@@ -102,9 +102,9 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
         btIniciar.setBackground(new java.awt.Color(255, 255, 255));
         btIniciar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/confirmar.png"))); // NOI18N
-        btIniciar.setText("Iniciar");
-        btIniciar.setToolTipText("Entrar");
+        btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/imprimir.png"))); // NOI18N
+        btIniciar.setText("Imprimir");
+        btIniciar.setToolTipText("Imprimir");
         btIniciar.setContentAreaFilled(false);
         btIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btIniciar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -145,14 +145,15 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
                             .addComponent(jSeparator17)
                             .addComponent(jSeparator18)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btVoltarMenu)
-                        .addGap(57, 57, 57)
-                        .addComponent(btIniciar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btVoltarMenu)
+                                .addGap(57, 57, 57)
+                                .addComponent(btIniciar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel2)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -228,7 +229,7 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
                 viewer.setSize(1000, 600);
                 viewer.setLocationRelativeTo(null);
                 viewer.setModal(true);
-                pathjrxml = JasperCompileManager.compileReport("C:\\Documents and Settings\\Usuario\\Meus documentos\\NetBeansProjects\\psicoteste\\src\\techpesc\\relatorio\\PrevisaoAbateLote.jrxml");
+                pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/PrevisaoAbateLote.jrxml");
                 JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
                         connection);
                 JasperViewer jv = new JasperViewer(printReport, false);

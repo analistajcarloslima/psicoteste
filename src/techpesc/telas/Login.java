@@ -281,7 +281,7 @@ public class Login extends javax.swing.JFrame {
             dispose();
             new Principal(usuario).setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos, Redigite");
+            JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos, Redigite","ERRO", JOptionPane.ERROR_MESSAGE);
             tfLogin.setText("");
             tfSenha.setText("");
         }
