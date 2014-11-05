@@ -39,7 +39,7 @@ import techpesc.util.Util;
  */
 public class CadastroAlimentarTanqueRede extends javax.swing.JDialog {
 
-    Lote lote = new Lote();
+    Lote lote;
     Transferencia transferencia = new Transferencia();
     TanqueRedeDAO tanqueredeDAO = new TanqueRedeDAO();
     Alimentacao alimentacao = new Alimentacao();
