@@ -77,7 +77,7 @@ public class Tutoriais extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Selecione o desejado");
 
-        jcTutorial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "------", "Alimentação", "Estoque", "Entrada Alevino", "Fornecedor", "Funcionário", "Lote", "Mortandade", "Relatórios", "Tanque Rede", "Transferência de T.R.", "Venda" }));
+        jcTutorial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "------", "Alimentação", "Cliente", "Estoque", "Entrada Alevino", "Fornecedor", "Funcionário", "Lote", "Mortandade", "Relatórios", "Tanque Rede", "Transferência de T.R.", "Venda" }));
         jcTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcTutorialActionPerformed(evt);
@@ -193,14 +193,22 @@ public class Tutoriais extends javax.swing.JDialog {
         if (jcTutorial.getSelectedItem().toString() != "------") {
             if (jcTutorial.getSelectedItem().toString() == "Alimentação") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadAlimentacao.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Alimentacao.mp4"));
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (jcTutorial.getSelectedItem().toString() == "Cliente") {
+                try {
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadEstoque.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (jcTutorial.getSelectedItem().toString() == "Estoque") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadEstoque.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Estoque.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -235,14 +243,7 @@ public class Tutoriais extends javax.swing.JDialog {
             }
             if (jcTutorial.getSelectedItem().toString() == "Mortandade") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadMortandade.mp4"));
-                } catch (IOException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (jcTutorial.getSelectedItem().toString() == "Relatórios") {
-                try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Relatorio.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Mortandade.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -256,14 +257,14 @@ public class Tutoriais extends javax.swing.JDialog {
             }
             if (jcTutorial.getSelectedItem().toString() == "Transferência de T.R.") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadTransferencia.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Transferencia.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (jcTutorial.getSelectedItem().toString() == "Venda") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadVenda.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Vendas.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -327,7 +328,6 @@ public class Tutoriais extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIniciar;
     private javax.swing.JButton btVoltarMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel41;
