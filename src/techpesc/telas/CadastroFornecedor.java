@@ -357,7 +357,7 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         if (fornecedor == null) {
             fornecedor = new Fornecedor();
         }
-        if (Util.chkVazio(tfCNPJ.getText(), tfContato.getText(), tfNomeCompleto.getText(), jcProduto.getSelectedItem().toString()) == true) {
+        if (Util.chkVazio(tfContato.getText(), tfNomeCompleto.getText(), jcProduto.getSelectedItem().toString()) == true) {
             if (fornecedor.getIdFornecedor() == 0) {
                 fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
                 fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
