@@ -26,6 +26,12 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/techpesc/imagens/peixe.png")).getImage());
         JlUsuario.setText(String.valueOf(usuario.toString()));
+        if(usuario.isAdministrador()==false){
+            jMFuncionario.setVisible(false);
+            jMUsuario.setVisible(false);
+            jMVendas.setVisible(false);
+            
+        }
     }
 
     /**
@@ -47,18 +53,18 @@ public class Principal extends javax.swing.JFrame {
         Estoque = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMFuncionario = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        jMUsuario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMFinanceiro = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMVendas = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem21 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -181,17 +187,16 @@ public class Principal extends javax.swing.JFrame {
         });
         Estoque.add(jMenuItem3);
 
-        jMenuItem1.setBackground(new java.awt.Color(23, 49, 106));
-        jMenuItem1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
-        jMenuItem1.setText("Funcionário");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMFuncionario.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMFuncionario.setForeground(new java.awt.Color(23, 49, 106));
+        jMFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        jMFuncionario.setText("Funcionário");
+        jMFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMFuncionarioActionPerformed(evt);
             }
         });
-        Estoque.add(jMenuItem1);
+        Estoque.add(jMFuncionario);
 
         jMenuItem15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem15.setForeground(new java.awt.Color(23, 49, 106));
@@ -215,7 +220,6 @@ public class Principal extends javax.swing.JFrame {
         });
         Estoque.add(jMenuItem2);
 
-        jMenuItem14.setBackground(new java.awt.Color(23, 49, 106));
         jMenuItem14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem14.setForeground(new java.awt.Color(23, 49, 106));
         jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
@@ -227,16 +231,16 @@ public class Principal extends javax.swing.JFrame {
         });
         Estoque.add(jMenuItem14);
 
-        jMenuItem11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem11.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
-        jMenuItem11.setText("Usuário");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        jMUsuario.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMUsuario.setForeground(new java.awt.Color(23, 49, 106));
+        jMUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        jMUsuario.setText("Usuário");
+        jMUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                jMUsuarioActionPerformed(evt);
             }
         });
-        Estoque.add(jMenuItem11);
+        Estoque.add(jMUsuario);
 
         jMenuBar1.add(Estoque);
 
@@ -282,12 +286,12 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
-        jMenu2.setForeground(new java.awt.Color(23, 49, 106));
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/financeiro.png"))); // NOI18N
-        jMenu2.setText("Financeiro");
-        jMenu2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMFinanceiro.setForeground(new java.awt.Color(23, 49, 106));
+        jMFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/financeiro.png"))); // NOI18N
+        jMFinanceiro.setText("Financeiro");
+        jMFinanceiro.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jMFinanceiro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMFinanceiro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jMenuItem16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMenuItem16.setForeground(new java.awt.Color(23, 49, 106));
@@ -298,20 +302,20 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem16ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem16);
+        jMFinanceiro.add(jMenuItem16);
 
-        jMenuItem5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem5.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_financeiro.png"))); // NOI18N
-        jMenuItem5.setText("Vendas");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMVendas.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMVendas.setForeground(new java.awt.Color(23, 49, 106));
+        jMVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_financeiro.png"))); // NOI18N
+        jMVendas.setText("Vendas");
+        jMVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMVendasActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMFinanceiro.add(jMVendas);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMFinanceiro);
 
         jMenu3.setForeground(new java.awt.Color(23, 49, 106));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/relatorios.png"))); // NOI18N
@@ -436,23 +440,23 @@ public class Principal extends javax.swing.JFrame {
       dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFuncionarioActionPerformed
         // TODO add your handling code here:
         new CadastroFuncionario().setVisible(true);
 
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMFuncionarioActionPerformed
 
     private void EstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstoqueActionPerformed
         // TODO add your handling code here:
       
     }//GEN-LAST:event_EstoqueActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void jMUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUsuarioActionPerformed
         // TODO add your handling code here:
           new CadastroUsuario().setVisible(true);
 
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_jMUsuarioActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         new CadastroTanqueRede().setVisible(true);
@@ -489,9 +493,9 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu4MouseClicked
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMVendasActionPerformed
      new CadastroVendaTanqueRede().setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_jMVendasActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
       new Tutoriais().setVisible(true);
@@ -563,14 +567,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMFinanceiro;
+    private javax.swing.JMenuItem jMFuncionario;
+    private javax.swing.JMenuItem jMUsuario;
+    private javax.swing.JMenuItem jMVendas;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
@@ -584,7 +589,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;

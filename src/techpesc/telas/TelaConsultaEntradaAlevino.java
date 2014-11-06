@@ -92,6 +92,7 @@ public class TelaConsultaEntradaAlevino extends javax.swing.JDialog {
         JcPesquisaEntradaDisponivel = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta Entrada Alevino");
         setBackground(new java.awt.Color(23, 49, 106));
 
         jPanel7.setBackground(new java.awt.Color(23, 49, 106));

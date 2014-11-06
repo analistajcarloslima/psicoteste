@@ -81,7 +81,7 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         tfMortesFinal = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tutoriais");
+        setTitle("Relatório");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(23, 49, 106));
@@ -261,13 +261,14 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
         String sql = "", texto = "";
         if (jcTutorial.getSelectedIndex() != 0) {
             Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);
-            sql += "lote.idLote=" + l.getIdLote();            
+            sql += "lote.idLote=" + l.getIdLote();
         }
-        if(!tfMortesFinal.getText().equals("  /  /    ")){
-            if(!sql.equals("")){
+
+        if (!tfMortesFinal.getText().equals("  /  /    ")) {
+            if (!sql.equals("")) {
                 sql += " and";
             }
-            
+
             String dataInicial = "", dataFinal = "";
             try {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -284,13 +285,17 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            
-            sql+= " mortandade.dataMortandade between '"+dataInicial+" 00:00:00'"+" and '"+dataFinal+" 23:59:59"+"'";
+            if (!sql.equals("")) {
+                sql += " mortandade.dataMortandade between '" + dataInicial + " 00:00:00'" + " and '" + dataFinal + " 23:59:59" + "'";
+            }
         }
-        
-        
-        if(!sql.equals("")){
+
+        if (!sql.equals("")) {
             sql += " order by lote.nomeLote";
+        }
+
+        if (sql.equals("")) {
+            sql += "lote.idLote>0";
         }
         parametros.put("texto", sql);
 

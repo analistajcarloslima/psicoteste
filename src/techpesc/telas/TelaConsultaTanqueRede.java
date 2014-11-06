@@ -96,6 +96,7 @@ public class TelaConsultaTanqueRede extends javax.swing.JDialog {
         JcPesquisaTanqueDisponivel = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta Tanque Rede");
         setBackground(new java.awt.Color(23, 49, 106));
 
         jPanel7.setBackground(new java.awt.Color(23, 49, 106));
