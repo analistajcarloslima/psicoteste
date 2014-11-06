@@ -77,7 +77,7 @@ public class Tutoriais extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Selecione o desejado");
 
-        jcTutorial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "------", "Alimentação", "Cliente", "Estoque", "Entrada Alevino", "Fornecedor", "Funcionário", "Lote", "Mortandade", "Relatórios", "Tanque Rede", "Transferência de T.R.", "Venda" }));
+        jcTutorial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "------", "Alimentação", "Cliente", "Estoque", "Entrada Alevino", "Fornecedor", "Funcionário", "Lote", "Mortandade", "Tanque Rede", "Transferência de T.R.", "Venda" }));
         jcTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcTutorialActionPerformed(evt);
@@ -201,7 +201,7 @@ public class Tutoriais extends javax.swing.JDialog {
 
             if (jcTutorial.getSelectedItem().toString() == "Cliente") {
                 try {
-                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\CadEstoque.mp4"));
+                    java.awt.Desktop.getDesktop().open(new File("src\\techpesc\\tutoriais\\Clientes.mp4"));
                 } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
