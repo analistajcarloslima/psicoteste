@@ -76,7 +76,7 @@ public class TelaRelatorioTransferencia extends javax.swing.JDialog {
         btVoltarMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tutoriais");
+        setTitle("Relatório");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(23, 49, 106));

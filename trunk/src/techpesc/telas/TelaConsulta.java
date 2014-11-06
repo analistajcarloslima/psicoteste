@@ -93,6 +93,7 @@ public class TelaConsulta extends javax.swing.JDialog {
         btPesquisarNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela de Consultas");
         setBackground(new java.awt.Color(23, 49, 106));
 
         jPanel7.setBackground(new java.awt.Color(23, 49, 106));

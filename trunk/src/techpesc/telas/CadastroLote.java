@@ -58,15 +58,7 @@ public class CadastroLote extends javax.swing.JDialog {
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/techpesc/imagens/peixe.png")).getImage());
         atualizaTabelaTanqueRede();
-        tfQtdAlevinos.setEditable(false);
-        tfDataEntrada.setEditable(false);
-        tfCusto.setEditable(false);
-        tfDataNascimento.setEditable(false);
-        tfFornecedor.setEditable(false);
         tfNumeroEntrada.setEditable(false);
-        tfQtdAlevinos.setEditable(false);
-        tfQtdDePeixesNaoVinculados1.setEditable(false);
-        tfLucroEstimado.setEditable(false);
         tfQtdDePeixesNaoVinculados1.setEnabled(true);
         jPanel5.setVisible(false);
         setModal(true);
@@ -101,37 +93,37 @@ public class CadastroLote extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         tfNomeLote = new javax.swing.JTextField();
-        btPesquisaEntradaAlevino = new javax.swing.JButton();
-        tfNumeroEntrada = new javax.swing.JTextField();
-        jLabel49 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        tfQtdAlevinos = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
-        tfDataEntrada = new javax.swing.JFormattedTextField();
         jLabel45 = new javax.swing.JLabel();
-        tfFornecedor = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        tfDataNascimento = new javax.swing.JFormattedTextField();
+        jLabel46 = new javax.swing.JLabel();
+        tfQtdAlevinos = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
+        tfFornecedor = new javax.swing.JLabel();
+        tfDataEntrada = new javax.swing.JLabel();
+        tfDataNascimento = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         btCadastraEntradaAlevino = new javax.swing.JButton();
+        jLabel49 = new javax.swing.JLabel();
+        tfNumeroEntrada = new javax.swing.JTextField();
+        btPesquisaEntradaAlevino = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbTanqueRede = new javax.swing.JTable();
         btExcluirTanqueRede1 = new javax.swing.JButton();
-        tfQtdDePeixesNaoVinculados1 = new javax.swing.JTextField();
         btPesquisaTanqueRede1 = new javax.swing.JButton();
         btCadastraTanqueRede = new javax.swing.JButton();
         btAdicionarPeixe = new javax.swing.JButton();
         jLabel50 = new javax.swing.JLabel();
+        tfQtdDePeixesNaoVinculados1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        tfCusto = new javax.swing.JTextField();
         tfPrevisaoAbate = new javax.swing.JFormattedTextField();
-        tfLucroEstimado = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
+        tfCusto = new javax.swing.JLabel();
+        tfLucroEstimado = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -265,133 +257,89 @@ public class CadastroLote extends javax.swing.JDialog {
             }
         });
 
-        btPesquisaEntradaAlevino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btPesquisaEntradaAlevino.setForeground(new java.awt.Color(255, 255, 255));
-        btPesquisaEntradaAlevino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_pesquisar.png"))); // NOI18N
-        btPesquisaEntradaAlevino.setContentAreaFilled(false);
-        btPesquisaEntradaAlevino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btPesquisaEntradaAlevino.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btPesquisaEntradaAlevino.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btPesquisaEntradaAlevino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisaEntradaAlevinoActionPerformed(evt);
-            }
-        });
-
-        tfNumeroEntrada.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfNumeroEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNumeroEntradaActionPerformed(evt);
-            }
-        });
-
-        jLabel49.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("N° Entrada.:");
-
         jPanel6.setBackground(new java.awt.Color(23, 49, 106));
-
-        tfQtdAlevinos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfQtdAlevinos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfQtdAlevinosActionPerformed(evt);
-            }
-        });
-
-        jLabel43.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("Informações gerais da entrada do alevino");
-
-        try {
-            tfDataEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfDataEntrada.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel45.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Qtd Alevinos.:");
 
-        tfFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFornecedorActionPerformed(evt);
-            }
-        });
+        jLabel47.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("Data de Entrada.:");
 
         jLabel46.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("Fornecedor.:");
 
-        jLabel47.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel47.setText("Data de Entrada.:");
-
-        try {
-            tfDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfDataNascimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfQtdAlevinos.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        tfQtdAlevinos.setForeground(new java.awt.Color(255, 255, 255));
+        tfQtdAlevinos.setText("???");
 
         jLabel51.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Data Nascimento.:");
+
+        tfFornecedor.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        tfFornecedor.setForeground(new java.awt.Color(255, 255, 255));
+        tfFornecedor.setText("???");
+
+        tfDataEntrada.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        tfDataEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        tfDataEntrada.setText("???");
+
+        tfDataNascimento.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        tfDataNascimento.setForeground(new java.awt.Color(255, 255, 255));
+        tfDataNascimento.setText("???");
+
+        jLabel43.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Informações gerais da entrada do alevino");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel43)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel45)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tfFornecedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfQtdAlevinos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel51)
+                    .addComponent(jLabel46)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel47)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel51)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tfFornecedor)
+                    .addComponent(tfQtdAlevinos)
+                    .addComponent(tfDataNascimento)
+                    .addComponent(tfDataEntrada))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jLabel43)
                 .addGap(33, 33, 33))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel43)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfQtdAlevinos, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel45)
-                    .addComponent(tfDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel51))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel46)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel45)
+                    .addComponent(tfQtdAlevinos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(tfFornecedor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51)
+                    .addComponent(tfDataNascimento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(tfDataEntrada))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         btCadastraEntradaAlevino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -407,48 +355,67 @@ public class CadastroLote extends javax.swing.JDialog {
             }
         });
 
+        jLabel49.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel49.setText("N° Entrada.:");
+
+        tfNumeroEntrada.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfNumeroEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNumeroEntradaActionPerformed(evt);
+            }
+        });
+
+        btPesquisaEntradaAlevino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btPesquisaEntradaAlevino.setForeground(new java.awt.Color(255, 255, 255));
+        btPesquisaEntradaAlevino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_pesquisar.png"))); // NOI18N
+        btPesquisaEntradaAlevino.setContentAreaFilled(false);
+        btPesquisaEntradaAlevino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisaEntradaAlevino.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btPesquisaEntradaAlevino.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btPesquisaEntradaAlevino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisaEntradaAlevinoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel44)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel49)
-                        .addGap(18, 18, 18)
+                    .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(tfNumeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btPesquisaEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btCadastraEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(btCadastraEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel44))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfNumeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel49))
-                    .addComponent(btPesquisaEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCadastraEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNomeLote, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel49)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfNumeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btPesquisaEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastraEntradaAlevino, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lote", jPanel4);
@@ -497,21 +464,16 @@ public class CadastroLote extends javax.swing.JDialog {
 
         btExcluirTanqueRede1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_excluir.png"))); // NOI18N
         btExcluirTanqueRede1.setContentAreaFilled(false);
+        btExcluirTanqueRede1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btExcluirTanqueRede1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btExcluirTanqueRede1ActionPerformed(evt);
             }
         });
 
-        tfQtdDePeixesNaoVinculados1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfQtdDePeixesNaoVinculados1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfQtdDePeixesNaoVinculados1ActionPerformed(evt);
-            }
-        });
-
         btPesquisaTanqueRede1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_pesquisar.png"))); // NOI18N
         btPesquisaTanqueRede1.setContentAreaFilled(false);
+        btPesquisaTanqueRede1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btPesquisaTanqueRede1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisaTanqueRede1ActionPerformed(evt);
@@ -520,6 +482,7 @@ public class CadastroLote extends javax.swing.JDialog {
 
         btCadastraTanqueRede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
         btCadastraTanqueRede.setContentAreaFilled(false);
+        btCadastraTanqueRede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCadastraTanqueRede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastraTanqueRedeActionPerformed(evt);
@@ -529,6 +492,7 @@ public class CadastroLote extends javax.swing.JDialog {
         btAdicionarPeixe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/adicionar_criacao.png"))); // NOI18N
         btAdicionarPeixe.setToolTipText("Adiciona peixes ao tanque rede selecionado");
         btAdicionarPeixe.setContentAreaFilled(false);
+        btAdicionarPeixe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btAdicionarPeixe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarPeixeActionPerformed(evt);
@@ -538,6 +502,10 @@ public class CadastroLote extends javax.swing.JDialog {
         jLabel50.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("vínculados a T.R..:");
+
+        tfQtdDePeixesNaoVinculados1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        tfQtdDePeixesNaoVinculados1.setForeground(new java.awt.Color(255, 255, 255));
+        tfQtdDePeixesNaoVinculados1.setText("???");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -557,13 +525,15 @@ public class CadastroLote extends javax.swing.JDialog {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel50)
-                    .addComponent(jLabel48)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(tfQtdDePeixesNaoVinculados1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel50)
+                            .addComponent(jLabel48)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(tfQtdDePeixesNaoVinculados1)))
                 .addGap(92, 92, 92))
         );
         jPanel5Layout.setVerticalGroup(
@@ -582,7 +552,7 @@ public class CadastroLote extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfQtdDePeixesNaoVinculados1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfQtdDePeixesNaoVinculados1))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -601,13 +571,6 @@ public class CadastroLote extends javax.swing.JDialog {
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("Custo com Alevino.:");
 
-        tfCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfCusto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCustoActionPerformed(evt);
-            }
-        });
-
         try {
             tfPrevisaoAbate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -620,16 +583,17 @@ public class CadastroLote extends javax.swing.JDialog {
             }
         });
 
-        tfLucroEstimado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfLucroEstimado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfLucroEstimadoActionPerformed(evt);
-            }
-        });
-
         jLabel54.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText("Lucro Bruto Estimado.:");
+
+        tfCusto.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        tfCusto.setForeground(new java.awt.Color(255, 255, 255));
+        tfCusto.setText("???");
+
+        tfLucroEstimado.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        tfLucroEstimado.setForeground(new java.awt.Color(255, 255, 255));
+        tfLucroEstimado.setText("???");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -641,16 +605,16 @@ public class CadastroLote extends javax.swing.JDialog {
                     .addComponent(jLabel53)
                     .addComponent(jLabel52))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfPrevisaoAbate)
-                    .addComponent(tfCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfPrevisaoAbate, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCusto))
                 .addContainerGap(179, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel54)
-                .addGap(18, 18, 18)
-                .addComponent(tfLucroEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfLucroEstimado)
+                .addGap(85, 85, 85))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,11 +626,11 @@ public class CadastroLote extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
-                    .addComponent(tfCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(tfCusto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54)
-                    .addComponent(tfLucroEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfLucroEstimado))
                 .addContainerGap())
         );
 
@@ -867,22 +831,6 @@ public class CadastroLote extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNumeroEntradaActionPerformed
 
-    private void tfQtdAlevinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfQtdAlevinosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfQtdAlevinosActionPerformed
-
-    private void tfFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFornecedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFornecedorActionPerformed
-
-    private void tfCustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCustoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCustoActionPerformed
-
-    private void tfLucroEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLucroEstimadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfLucroEstimadoActionPerformed
-
     private void btVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarMenuActionPerformed
 
         dispose();
@@ -963,10 +911,6 @@ public class CadastroLote extends javax.swing.JDialog {
         return tanqueRede;
 
     }
-    private void tfQtdDePeixesNaoVinculados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfQtdDePeixesNaoVinculados1ActionPerformed
-
-    }//GEN-LAST:event_tfQtdDePeixesNaoVinculados1ActionPerformed
-
     private void btPesquisaTanqueRede1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaTanqueRede1ActionPerformed
         if (!tfQtdDePeixesNaoVinculados1.getText().equals("")) {
             if (!tfNomeLote.getText().equals("")) {
@@ -1208,15 +1152,15 @@ public class CadastroLote extends javax.swing.JDialog {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable tbTanqueRede;
-    private javax.swing.JTextField tfCusto;
-    private javax.swing.JFormattedTextField tfDataEntrada;
-    private javax.swing.JFormattedTextField tfDataNascimento;
-    private javax.swing.JTextField tfFornecedor;
-    private javax.swing.JTextField tfLucroEstimado;
+    private javax.swing.JLabel tfCusto;
+    private javax.swing.JLabel tfDataEntrada;
+    private javax.swing.JLabel tfDataNascimento;
+    private javax.swing.JLabel tfFornecedor;
+    private javax.swing.JLabel tfLucroEstimado;
     private javax.swing.JTextField tfNomeLote;
     private javax.swing.JTextField tfNumeroEntrada;
     private javax.swing.JFormattedTextField tfPrevisaoAbate;
-    private javax.swing.JTextField tfQtdAlevinos;
-    private javax.swing.JTextField tfQtdDePeixesNaoVinculados1;
+    private javax.swing.JLabel tfQtdAlevinos;
+    private javax.swing.JLabel tfQtdDePeixesNaoVinculados1;
     // End of variables declaration//GEN-END:variables
 }

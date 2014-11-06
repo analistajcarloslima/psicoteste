@@ -3,12 +3,15 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="texto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      *
 FROM
      `lote` lote INNER JOIN `lote_tanquerede` lote_tanquerede ON lote.`idLote` = lote_tanquerede.`Lote_idLote`
-     INNER JOIN `tanquerede` tanquerede ON lote_tanquerede.`tanquesRede_idTanqueRede` = tanquerede.`idTanqueRede`]]>
+     INNER JOIN `tanquerede` tanquerede ON lote_tanquerede.`tanquesRede_idTanqueRede` = tanquerede.`idTanqueRede` where $P!{texto}]]>
 	</queryString>
 	<field name="idLote" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

@@ -42,6 +42,8 @@ import techpesc.util.Util;
  */
 public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
 
+    LoteDAO loteDAO = new LoteDAO();
+
     /**
      * Creates new form Cadastro_de_Funcionário
      */
@@ -75,7 +77,7 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
         btVoltarMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tutoriais");
+        setTitle("Relatório");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(23, 49, 106));
@@ -211,33 +213,30 @@ public class TelaRelatorioPrevisaoTanque extends javax.swing.JDialog {
         JasperReport pathjrxml;
         HashMap parametros = new HashMap();
         String sql = "", texto = "";
+        if (jcTutorial.getSelectedIndex() != 0) {
+            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);
+            sql += "lote.idLote=" + l.getIdLote();
+        }else{
+            sql += "lote.idLote>0";
+        }
         
-       // LoteDAO loteDAO = new LoteDAO();
-            
-//            Lote l = loteDAO.pesquisaNome(jcTutorial.getSelectedItem().toString()).get(0);          
-            
-  //          sql += " and lote.idLote=" + l.getIdLote();
-      //      sql += " order by lote.nomeLote";
-    //        parametros.put("texto", sql);
-            
-            
+        parametros.put("texto", sql);
         Connection connection = new ConnectionFactory().getConnection();
-        
-        
+
         try {
-                JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);
-                viewer.setSize(1000, 600);
-                viewer.setLocationRelativeTo(null);
-                viewer.setModal(true);
-                pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/PrevisaoAbateLote.jrxml");
-                JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
-                        connection);
-                JasperViewer jv = new JasperViewer(printReport, false);
-                viewer.getContentPane().add(jv.getContentPane());
-                viewer.setVisible(true);
-            } catch (JRException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            JDialog viewer = new JDialog(new javax.swing.JFrame(), "Visualização do Relatório", true);
+            viewer.setSize(1000, 600);
+            viewer.setLocationRelativeTo(null);
+            viewer.setModal(true);
+            pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/PrevisaoAbateLote.jrxml");
+            JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
+                    connection);
+            JasperViewer jv = new JasperViewer(printReport, false);
+            viewer.getContentPane().add(jv.getContentPane());
+            viewer.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btIniciarActionPerformed
 
     private void jcTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTutorialActionPerformed
