@@ -301,8 +301,8 @@ public class TelaRelatorioMortandade extends javax.swing.JDialog {
             viewer.setSize(1000, 600);
             viewer.setLocationRelativeTo(null);
             viewer.setModal(true);
-         //   pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/RelatorioMortandade.jrxml");
-            JasperPrint printReport = JasperFillManager.fillReport("src/techpesc/relatorio/RelatorioMortandade.jasper", parametros,
+            pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/RelatorioMortandade.jrxml");
+            JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
                     connection);
             JasperViewer jv = new JasperViewer(printReport, false);
             viewer.getContentPane().add(jv.getContentPane());
