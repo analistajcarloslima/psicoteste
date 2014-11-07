@@ -145,7 +145,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastro de Estoque");
+        jLabel1.setText("Entrada de Produtos");
 
         jPanel2.setBackground(new java.awt.Color(23, 49, 106));
 

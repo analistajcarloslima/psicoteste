@@ -52,7 +52,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Estoque = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMFuncionario = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -64,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem20 = new javax.swing.JMenuItem();
         jMFinanceiro = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMVendas = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem21 = new javax.swing.JMenuItem();
@@ -176,17 +176,6 @@ public class Principal extends javax.swing.JFrame {
         });
         Estoque.add(jMenuItem4);
 
-        jMenuItem3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jMenuItem3.setForeground(new java.awt.Color(23, 49, 106));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
-        jMenuItem3.setText("Estoque");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        Estoque.add(jMenuItem3);
-
         jMFuncionario.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMFuncionario.setForeground(new java.awt.Color(23, 49, 106));
         jMFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
@@ -288,7 +277,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMFinanceiro.setForeground(new java.awt.Color(23, 49, 106));
         jMFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/financeiro.png"))); // NOI18N
-        jMFinanceiro.setText("Financeiro");
+        jMFinanceiro.setText("Movimentação");
         jMFinanceiro.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jMFinanceiro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMFinanceiro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -303,6 +292,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMFinanceiro.add(jMenuItem16);
+
+        jMenuItem3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jMenuItem3.setForeground(new java.awt.Color(23, 49, 106));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_financeiro.png"))); // NOI18N
+        jMenuItem3.setText("Entrada Produto");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMFinanceiro.add(jMenuItem3);
 
         jMVendas.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jMVendas.setForeground(new java.awt.Color(23, 49, 106));
