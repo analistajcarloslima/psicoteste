@@ -277,7 +277,6 @@ public class Login extends javax.swing.JFrame {
         UsuarioDAO dao = new UsuarioDAO();
         if (dao.autenticar(tfLogin.getText(), Util.md5(tfSenha.getText()))) {
             Usuario usuario = dao.pesquisarLogin(tfLogin.getText());
-            JOptionPane.showMessageDialog(rootPane, "Usuário e Senha Corretos, Bem vindo ao sistema!");
             dispose();
             new Principal(usuario).setVisible(true);
         } else {

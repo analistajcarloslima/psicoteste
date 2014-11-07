@@ -279,7 +279,7 @@ public class CadastroCliente extends javax.swing.JDialog {
 
         jLabel51.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel51.setText("Cep.:");
+        jLabel51.setText("CEP.:");
 
         try {
             tfCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
