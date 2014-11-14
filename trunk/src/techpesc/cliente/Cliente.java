@@ -33,8 +33,11 @@ public class Cliente {
     @Column(length = 150, nullable = false)
     private String nomeCliente;
 
-    @Column(length = 150, nullable = false)
+    @Column(length = 150, nullable = true)
     private String cpfCliente;
+    
+    @Column(length = 150, nullable = true)
+    private String cnpjCliente;
 
     @Column(length = 20, nullable = false)
     private String contatoCliente;
@@ -161,6 +164,20 @@ public class Cliente {
      */
     public void setEstadoCliente(String estadoCliente) {
         this.estadoCliente = estadoCliente;
+    }
+
+    /**
+     * @return the cnpjCliente
+     */
+    public String getCnpjCliente() {
+        return cnpjCliente;
+    }
+
+    /**
+     * @param cnpjCliente the cnpjCliente to set
+     */
+    public void setCnpjCliente(String cnpjCliente) {
+        this.cnpjCliente = cnpjCliente;
     }
 
     

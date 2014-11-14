@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class FornecedorTableModel extends AbstractTableModel {
 
     private List<Fornecedor> fornecedores = new ArrayList<>();
-    String[] nomeColunas = {"Código", "Empresa", "CPNJ", "Produto", "Contato",};
+    String[] nomeColunas = {"Código", "Nome", "CPNJ", "CPF", "Contato",};
 
     public FornecedorTableModel(List<Fornecedor> fornecedores) {
         this.fornecedores.clear();
@@ -44,7 +44,7 @@ public class FornecedorTableModel extends AbstractTableModel {
             case 2:
                 return fornecedor.getCnpjFornecedor();
             case 3:
-                return fornecedor.getProdutoFornecedor();
+                return fornecedor.getCpfFornecedor();
             case 4:
                 return fornecedor.getContatoFornecedor();
         }

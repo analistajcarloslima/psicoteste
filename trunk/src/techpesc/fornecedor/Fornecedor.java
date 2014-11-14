@@ -29,15 +29,14 @@ public class Fornecedor {
     @Column(length = 150, nullable = false)
     private String nomeFornecedor;
 
-    @Column(length = 18, nullable = false)
+    @Column(length = 18, nullable = true)
     private String cnpjFornecedor;
+    
+    @Column(length = 18, nullable = true)
+    private String cpfFornecedor;
 
     @Column(length = 15, nullable = false)
     private String contatoFornecedor;
-
-    @Column(length = 20, nullable = false)
-    private String produtoFornecedor;
-    
 
     /**
      * @return the idFornecedor
@@ -70,36 +69,6 @@ public class Fornecedor {
     /**
      * @return the cnpjFornecedor
      */
-
-    /**
-     * @param cnpjFornecedor the cnpjFornecedor to set
-     */
-    public void setCnpjFornecedor(double cnpjFornecedor) {
-        this.setCnpjFornecedor(cnpjFornecedor);
-    }
-
-    /**
-     * @return the contatoFornecedor
-     */
-
-
-    /**
-     * @param produtoFornecedor the produtoFornecedor to set
-     */
-    public void setProdutoFornecedor(String produtoFornecedor) {
-        this.produtoFornecedor = produtoFornecedor;
-    }
-
-    /**
-     * @return the produtoFornecedor
-     */
-    public String getProdutoFornecedor() {
-        return produtoFornecedor;
-    }
-
-    /**
-     * @return the cnpjFornecedor
-     */
     public String getCnpjFornecedor() {
         return cnpjFornecedor;
     }
@@ -125,44 +94,20 @@ public class Fornecedor {
         this.contatoFornecedor = contatoFornecedor;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + this.idFornecedor;
-        hash = 47 * hash + Objects.hashCode(this.nomeFornecedor);
-        hash = 47 * hash + Objects.hashCode(this.cnpjFornecedor);
-        hash = 47 * hash + Objects.hashCode(this.contatoFornecedor);
-        hash = 47 * hash + Objects.hashCode(this.produtoFornecedor);
-        return hash;
+    /**
+     * @return the cpfFornecedor
+     */
+    public String getCpfFornecedor() {
+        return cpfFornecedor;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Fornecedor other = (Fornecedor) obj;
-        if (this.idFornecedor != other.idFornecedor) {
-            return false;
-        }
-        if (!Objects.equals(this.nomeFornecedor, other.nomeFornecedor)) {
-            return false;
-        }
-        if (!Objects.equals(this.cnpjFornecedor, other.cnpjFornecedor)) {
-            return false;
-        }
-        if (!Objects.equals(this.contatoFornecedor, other.contatoFornecedor)) {
-            return false;
-        }
-        if (!Objects.equals(this.produtoFornecedor, other.produtoFornecedor)) {
-            return false;
-        }
-        return true;
+    /**
+     * @param cpfFornecedor the cpfFornecedor to set
+     */
+    public void setCpfFornecedor(String cpfFornecedor) {
+        this.cpfFornecedor = cpfFornecedor;
     }
-    
+
     
 
 }

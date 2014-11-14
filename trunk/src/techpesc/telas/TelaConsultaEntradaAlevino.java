@@ -42,6 +42,7 @@ public class TelaConsultaEntradaAlevino extends javax.swing.JDialog {
         FormataTamanhoColunasJTable.packColumns(tbPesquisar, 1);
         tfPesquisarPorNome.grabFocus();
         btEditar.setEnabled(false);
+        JcPesquisaEntradaDisponivel.setSelectedIndex(1);
         this.setIconImage(new ImageIcon(getClass().getResource("/techpesc/imagens/peixe.png")).getImage());
         setModal(true);
     }

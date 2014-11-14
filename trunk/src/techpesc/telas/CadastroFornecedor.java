@@ -40,6 +40,11 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         setModal(true);
         tfNomeCompleto.setVisible(true);
 
+        tfCPF.setEnabled(false);
+        jLCPF.setEnabled(false);
+        jLCNPJ.setEnabled(false);
+        tfCNPJ.setEnabled(false);
+
     }
 
     /**
@@ -62,14 +67,16 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         btSalvar = new javax.swing.JButton();
         btExcluir3 = new javax.swing.JButton();
         btSalvar1 = new javax.swing.JButton();
-        tfCNPJ = new javax.swing.JFormattedTextField();
-        jLabel49 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         tfNomeCompleto = new javax.swing.JTextField();
         tfContato = new javax.swing.JFormattedTextField();
-        jcProduto = new javax.swing.JComboBox();
+        jLabel53 = new javax.swing.JLabel();
+        jCpessoa = new javax.swing.JComboBox();
+        jLCPF = new javax.swing.JLabel();
+        tfCPF = new javax.swing.JFormattedTextField();
+        jLCNPJ = new javax.swing.JLabel();
+        tfCNPJ = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Fornecedor");
@@ -191,38 +198,13 @@ public class CadastroFornecedor extends javax.swing.JDialog {
                 .addGap(62, 62, 62))
         );
 
-        try {
-            tfCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        tfCNPJ.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tfCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfCNPJFocusLost(evt);
-            }
-        });
-        tfCNPJ.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCNPJActionPerformed(evt);
-            }
-        });
-
-        jLabel49.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("Produto.:");
-
         jLabel42.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("Contato .:");
 
-        jLabel43.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("CNPJ .:");
-
         jLabel44.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setText("Nome da Empresa .:");
+        jLabel44.setText("Nome .:");
 
         tfNomeCompleto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tfNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
@@ -243,20 +225,63 @@ public class CadastroFornecedor extends javax.swing.JDialog {
             }
         });
 
-        jcProduto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "Alevino", "Ração", "Alevino/Ração", "Malha", "Medicamentos", "Outros" }));
+        jLabel53.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel53.setText("Pessoa.:");
+
+        jCpessoa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "Física", "Jurídica" }));
+        jCpessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCpessoaActionPerformed(evt);
+            }
+        });
+
+        jLCPF.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCPF.setForeground(new java.awt.Color(255, 255, 255));
+        jLCPF.setText("CPF.:");
+
+        try {
+            tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfCPF.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCPFActionPerformed(evt);
+            }
+        });
+        tfCPF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfCPFFocusLost(evt);
+            }
+        });
+
+        jLCNPJ.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLCNPJ.setForeground(new java.awt.Color(255, 255, 255));
+        jLCNPJ.setText("CNPJ.:");
+
+        try {
+            tfCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfCNPJ.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tfCNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCNPJActionPerformed(evt);
+            }
+        });
+        tfCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfCNPJFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2))
-                .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel41)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -271,20 +296,35 @@ public class CadastroFornecedor extends javax.swing.JDialog {
                                 .addGap(198, 198, 198)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
+                                .addGap(160, 160, 160)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel42)
+                                    .addComponent(jLCPF)
+                                    .addComponent(jLabel53)
+                                    .addComponent(jLCNPJ))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCpessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel44)
-                                    .addComponent(jLabel43)
-                                    .addComponent(jLabel49))
+                                    .addComponent(jLabel42))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfContato, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,25 +334,27 @@ public class CadastroFornecedor extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel44)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43))
+                    .addComponent(jLabel44)
+                    .addComponent(tfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
                     .addComponent(tfContato, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49)
-                    .addComponent(jcProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                    .addComponent(jCpessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel53))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCPF)
+                    .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCNPJ)
+                    .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,83 +369,24 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        List<Fornecedor> lista;
-        FornecedorDAO dao = new FornecedorDAO();
-        lista = (dao.listar());
-        FornecedorTableModel itm = new FornecedorTableModel(lista);
-        Object o = TelaConsulta.exibeTela(itm, "Fornecedor");
-        if (o != null) {
-            fornecedor = fornecedorRN.pesquisarCodigo(Short.valueOf(String.valueOf(o)));
-            tfNomeCompleto.setText(fornecedor.getNomeFornecedor());
-            tfCNPJ.setText((fornecedor.getCnpjFornecedor()));
-            tfContato.setText((fornecedor.getContatoFornecedor()));
-            jcProduto.setSelectedItem(fornecedor.getProdutoFornecedor());
-            btExcluir3.setEnabled(true);
-        }
-    }//GEN-LAST:event_btPesquisarActionPerformed
+    private void tfContatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfContatoFocusLost
 
-
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if (fornecedor == null) {
-            fornecedor = new Fornecedor();
-        }
-        if (Util.chkVazio(tfContato.getText(), tfNomeCompleto.getText(), jcProduto.getSelectedItem().toString()) == true) {
-            if (fornecedor.getIdFornecedor() == 0) {
-                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
-                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
-                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
-                fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
-                fornecedorDAO.salvar(fornecedor);
-                JOptionPane.showMessageDialog(rootPane, "Fornecedor Cadastrado com Sucesso!");
-                limparCampos();
-            } else {
-                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
-                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
-                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
-                fornecedor.setProdutoFornecedor(jcProduto.getSelectedItem().toString());
-                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o fornecedor " + fornecedor.getNomeFornecedor()
-                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
-                    fornecedorDAO.salvar(fornecedor);
-                    JOptionPane.showMessageDialog(rootPane, "Pronto,  " + fornecedor.getNomeFornecedor()
-                            + ", foi editado com sucesso!", "Fornecedor", JOptionPane.INFORMATION_MESSAGE);
-                }
-                limparCampos();
-            }
-        }
-
-    }//GEN-LAST:event_btSalvarActionPerformed
-    public void limparCampos() {
-        tfCNPJ.setText("");
-        tfContato.setText("");
-        tfNomeCompleto.setText("");
-        jcProduto.setSelectedItem("----");
-        tfContato.setText("");
-        btExcluir3.setEnabled(false);
-        fornecedor = null;
-    }
-
-    private void btVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarMenuActionPerformed
-
-        dispose();
-    }//GEN-LAST:event_btVoltarMenuActionPerformed
+    }//GEN-LAST:event_tfContatoFocusLost
 
     private void tfNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeCompletoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeCompletoActionPerformed
 
-    private void tfCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCNPJActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCNPJActionPerformed
+    private void btSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvar1ActionPerformed
+        limparCampos();        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvar1ActionPerformed
 
     private void btExcluir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluir3ActionPerformed
         if (fornecedor != null) {
@@ -422,12 +405,104 @@ public class CadastroFornecedor extends javax.swing.JDialog {
             }
         }
         limparCampos();
-
     }//GEN-LAST:event_btExcluir3ActionPerformed
 
-    private void btSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvar1ActionPerformed
-        limparCampos();        // TODO add your handling code here:
-    }//GEN-LAST:event_btSalvar1ActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        if (fornecedor == null) {
+            fornecedor = new Fornecedor();
+        }
+        if (Util.chkVazio(tfContato.getText(), tfNomeCompleto.getText(), jCpessoa.getSelectedItem().toString()) == true) {
+            if (fornecedor.getIdFornecedor() == 0) {
+                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
+                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
+                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
+                fornecedor.setCpfFornecedor((tfCPF.getText().replaceAll("\\D", "")));
+                fornecedorDAO.salvar(fornecedor);
+                JOptionPane.showMessageDialog(rootPane, "Fornecedor Cadastrado com Sucesso!");
+                limparCampos();
+            } else {
+                fornecedor.setNomeFornecedor(tfNomeCompleto.getText());
+                fornecedor.setContatoFornecedor((tfContato.getText().replaceAll("\\D", "")));
+                fornecedor.setCnpjFornecedor((tfCNPJ.getText().replaceAll("\\D", "")));
+                fornecedor.setCpfFornecedor((tfCPF.getText().replaceAll("\\D", "")));
+                if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente editar o fornecedor " + fornecedor.getNomeFornecedor()
+                        + "?", "TechPesc", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    fornecedorDAO.salvar(fornecedor);
+                    JOptionPane.showMessageDialog(rootPane, "Pronto,  " + fornecedor.getNomeFornecedor()
+                            + ", foi editado com sucesso!", "Fornecedor", JOptionPane.INFORMATION_MESSAGE);
+                }
+                limparCampos();
+            }
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarMenuActionPerformed
+
+        dispose();
+    }//GEN-LAST:event_btVoltarMenuActionPerformed
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        List<Fornecedor> lista;
+        FornecedorDAO dao = new FornecedorDAO();
+        lista = (dao.listar());
+        FornecedorTableModel itm = new FornecedorTableModel(lista);
+        Object o = TelaConsulta.exibeTela(itm, "Fornecedor");
+        if (o != null) {
+            fornecedor = fornecedorRN.pesquisarCodigo(Short.valueOf(String.valueOf(o)));
+            tfNomeCompleto.setText(fornecedor.getNomeFornecedor());
+            tfCNPJ.setText((fornecedor.getCnpjFornecedor()));
+            tfCPF.setText(fornecedor.getCpfFornecedor());
+            if(fornecedor.getCpfFornecedor().equals("")){
+                jCpessoa.setSelectedIndex(2);
+                jLCPF.setEnabled(false);
+                tfCPF.setEnabled(false);
+                
+            }else{
+                jCpessoa.setSelectedIndex(1);
+                jLCNPJ.setEnabled(false);
+                tfCNPJ.setEnabled(false);
+            }
+            tfContato.setText((fornecedor.getContatoFornecedor()));
+            btExcluir3.setEnabled(true);
+        }
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void jCpessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCpessoaActionPerformed
+        if (jCpessoa.getSelectedIndex() == 1) {
+            tfCPF.setEnabled(true);
+            jLCPF.setEnabled(true);
+            jLCNPJ.setEnabled(false);
+            tfCNPJ.setEnabled(false);
+        }
+
+        if (jCpessoa.getSelectedIndex() == 2) {
+            tfCPF.setEnabled(false);
+            jLCPF.setEnabled(false);
+            jLCNPJ.setEnabled(true);
+            tfCNPJ.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCpessoaActionPerformed
+
+    private void tfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCPFActionPerformed
+
+    private void tfCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCPFFocusLost
+        if (!tfCPF.getText().equals("   .   .   -  ")) {
+            if (!Util.CPF(tfCPF.getText().toString().replaceAll("\\D*", ""))) {
+                JOptionPane.showMessageDialog(rootPane, "Este CPF não é válido, redigite!",
+                        "ERRO", JOptionPane.ERROR_MESSAGE);
+                tfCPF.setText("");
+                tfCPF.requestFocus();
+            }
+        } else {
+
+        }
+    }//GEN-LAST:event_tfCPFFocusLost
+
+    private void tfCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCNPJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCNPJActionPerformed
 
     private void tfCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCNPJFocusLost
         if (!Util.validaCNPJ(tfCNPJ.getText().toString().replaceAll("\\D*", ""))) {
@@ -437,9 +512,20 @@ public class CadastroFornecedor extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tfCNPJFocusLost
 
-    private void tfContatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfContatoFocusLost
-
-    }//GEN-LAST:event_tfContatoFocusLost
+    public void limparCampos() {
+        tfCNPJ.setText("");
+        tfContato.setText("");
+        tfNomeCompleto.setText("");
+        tfContato.setText("");
+        btExcluir3.setEnabled(false);
+        fornecedor = null;
+        jCpessoa.setSelectedIndex(0);
+        tfCPF.setEnabled(false);
+        jLCPF.setEnabled(false);
+        jLCNPJ.setEnabled(false);
+        tfCNPJ.setEnabled(false);
+        tfCPF.setText("");
+    }
 
     /**
      * @param args the command line arguments
@@ -482,18 +568,20 @@ public class CadastroFornecedor extends javax.swing.JDialog {
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btSalvar1;
     private javax.swing.JButton btVoltarMenu;
+    private javax.swing.JComboBox jCpessoa;
+    private javax.swing.JLabel jLCNPJ;
+    private javax.swing.JLabel jLCPF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JComboBox jcProduto;
     private javax.swing.JFormattedTextField tfCNPJ;
+    private javax.swing.JFormattedTextField tfCPF;
     private javax.swing.JFormattedTextField tfContato;
     private javax.swing.JTextField tfNomeCompleto;
     // End of variables declaration//GEN-END:variables

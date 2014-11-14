@@ -473,7 +473,9 @@ public class CadastroMortandade extends javax.swing.JDialog {
     private void btMortandadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMortandadeActionPerformed
         int row = tbTanqueRede.getSelectedRow();
         if (row > -1) {
-            int peixesMortos = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de Peixes que morreram"));
+            int peixesMortos = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de Peixes que morreram,\n\n"
+                    + "Lembrando, caso queira diminuir a quantidade de peixes do lote, \n"
+                    + "apenas coloque o número negativo! exemplo: -5"));
             if (peixesMortos >= tanqueRedes.get(tbTanqueRede.getSelectedRow()).getMortandadeTanqueRede() - tanqueRedes.get(tbTanqueRede.getSelectedRow()).getLimiteAlevinosTanqueRede()) {
                 if (peixesMortos <= tanqueRedes.get(tbTanqueRede.getSelectedRow()).getQuantidadePeixesVinculados()) {
                     tanqueRedes.get(tbTanqueRede.getSelectedRow()).setMortandadeTanqueRede(peixesMortos + tanqueRedes.get(tbTanqueRede.getSelectedRow()).getMortandadeTanqueRede());
