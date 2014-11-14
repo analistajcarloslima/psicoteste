@@ -130,7 +130,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
         tfDataValidade = new javax.swing.JFormattedTextField();
         tfPesoRacao = new javax.swing.JTextField();
         jlTamanho2 = new javax.swing.JLabel();
-        jlTamanho3 = new javax.swing.JLabel();
+        jLPeso = new javax.swing.JLabel();
         btCadastroEstoque = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -409,9 +409,9 @@ public class CadastroEstoque extends javax.swing.JDialog {
         jlTamanho2.setForeground(new java.awt.Color(255, 255, 255));
         jlTamanho2.setText("Kg");
 
-        jlTamanho3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jlTamanho3.setForeground(new java.awt.Color(255, 255, 255));
-        jlTamanho3.setText("Peso Unid .:");
+        jLPeso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLPeso.setForeground(new java.awt.Color(255, 255, 255));
+        jLPeso.setText("Peso Unid .:");
 
         btCadastroEstoque.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btCadastroEstoque.setForeground(new java.awt.Color(255, 255, 255));
@@ -503,7 +503,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(jlTamanho3)
+                                .addComponent(jLPeso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tfPesoRacao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -572,7 +572,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlTamanho2)
                             .addComponent(tfPesoRacao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlTamanho3))))
+                            .addComponent(jLPeso))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -615,6 +615,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                         fornecedor = estoque.getFornecedor();
                         jcProduto.setEnabled(false);
                         btExcluir3.setEnabled(true);
+                        labelMedicamento();
                     }
                     break;
                 case 2:
@@ -638,6 +639,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                         fornecedor = estoque.getFornecedor();
                         jcProduto.setEnabled(false);
                         btExcluir3.setEnabled(true);
+                        labelMalha();
                     }
                     break;
                 case 3:
@@ -662,6 +664,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                         fornecedor = estoque.getFornecedor();
                         jcProduto.setEnabled(false);
                         btExcluir3.setEnabled(true);
+                        labelRacao();
                     }
                     break;
                 case 4:
@@ -683,6 +686,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
                         fornecedor = estoque.getFornecedor();
                         jcProduto.setEnabled(false);
                         btExcluir3.setEnabled(true);
+                        labelOutros();
                         break;
 
                     }
@@ -696,7 +700,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         if (jcProduto.getSelectedItem() != "----") {
-            if ((jcProduto.getSelectedIndex() != 0)&&(estoque == null)) {
+            if ((jcProduto.getSelectedIndex() != 0) && (estoque == null)) {
                 switch (jcProduto.getSelectedIndex()) {
                     case 1:
                         estoque = new Medicamento();
@@ -806,6 +810,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
         btExcluir3.setEnabled(false);
         tfPesoRacao.setEnabled(true);
         jcProduto.setEnabled(true);
+        labelOutros();
         estoque = null;
     }
 
@@ -854,6 +859,39 @@ public class CadastroEstoque extends javax.swing.JDialog {
         tfFornecedor.setText(fornecedor.getNomeFornecedor());
     }//GEN-LAST:event_btPesquisarNome4ActionPerformed
 
+    private void labelMedicamento() {
+        jlFase.setEnabled(false);
+        jlTamanho.setEnabled(false);
+        jlProteina.setEnabled(false);
+        jLPeso.setEnabled(false);
+        jlMedicamento.setEnabled(true);
+    }
+    
+    private void labelRacao() {
+        jlFase.setEnabled(true);
+        jlTamanho.setEnabled(false);
+        jlProteina.setEnabled(true);
+        jLPeso.setEnabled(true);
+        jlMedicamento.setEnabled(false);
+    }
+    
+    private void labelOutros() {
+        jlFase.setEnabled(false);
+        jlTamanho.setEnabled(false);
+        jlProteina.setEnabled(false);
+        jLPeso.setEnabled(false);
+        jlMedicamento.setEnabled(false);
+    }
+    
+     private void labelMalha() {
+        jlFase.setEnabled(true);
+        jlTamanho.setEnabled(true);
+        jlProteina.setEnabled(false);
+        jLPeso.setEnabled(false);
+        jlMedicamento.setEnabled(false);
+    }
+
+
     private void jcProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcProdutoActionPerformed
         if (jcProduto.getSelectedItem() == "Medicamento") {
             jcMedicamento.setEnabled(true);
@@ -862,6 +900,8 @@ public class CadastroEstoque extends javax.swing.JDialog {
             tfTamanho.setEnabled(false);
             tfProteina.setEnabled(false);
             tfPesoRacao.setEnabled(false);
+            labelMedicamento();
+
         }
         if (jcProduto.getSelectedItem() == "Malha") {
             jcFase.setEnabled(true);
@@ -870,6 +910,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
             jcMedicamento.setEnabled(false);
             tfProteina.setEnabled(false);
             tfPesoRacao.setEnabled(false);
+            labelMalha();
         }
         if (jcProduto.getSelectedItem() == "Ração") {
             jcFase.setEnabled(true);
@@ -878,7 +919,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
             tfTamanho.setEnabled(false);
             jcMedicamento.setEnabled(false);
             tfPesoRacao.setEnabled(true);
-            
+            labelRacao();
         }
         if (jcProduto.getSelectedItem() == "Outros") {
             jcMedicamento.setEnabled(false);
@@ -887,6 +928,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
             tfTamanho.setEnabled(false);
             tfProteina.setEnabled(false);
             tfPesoRacao.setEnabled(false);
+            labelOutros();
         }
 
         if (jcProduto.getSelectedItem() == "----") {
@@ -896,6 +938,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
             tfTamanho.setEnabled(false);
             tfProteina.setEnabled(false);
             tfPesoRacao.setEnabled(false);
+            labelOutros();
         }
     }//GEN-LAST:event_jcProdutoActionPerformed
 
@@ -920,7 +963,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
     }//GEN-LAST:event_tfTamanhoActionPerformed
 
     private void tfDataValidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfDataValidadeFocusLost
-        if (Util.dataValida(tfDataValidade.getText().toString())==false) {
+        if (Util.dataValida(tfDataValidade.getText().toString()) == false) {
             JOptionPane.showMessageDialog(rootPane, "Data inválida, redigite!",
                     "ERRO", JOptionPane.ERROR_MESSAGE);
             tfDataValidade.setText("");
@@ -981,6 +1024,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btSalvar1;
     private javax.swing.JButton btVoltarMenu;
+    private javax.swing.JLabel jLPeso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1003,7 +1047,6 @@ public class CadastroEstoque extends javax.swing.JDialog {
     private javax.swing.JLabel jlProteina;
     private javax.swing.JLabel jlTamanho;
     private javax.swing.JLabel jlTamanho2;
-    private javax.swing.JLabel jlTamanho3;
     private techpesc.estoque.racao.Racao racao1;
     private techpesc.estoque.racao.Racao racao2;
     private techpesc.estoque.racao.Racao racao3;
@@ -1039,7 +1082,7 @@ public class CadastroEstoque extends javax.swing.JDialog {
         Racao r = (Racao) estoque;
         r.setFaseRacao(jcFase.getSelectedItem().toString());
         r.setProteina((double) Double.parseDouble(tfProteina.getText()));
-        r.setPesoRacao((double) Double.parseDouble(tfPesoRacao.getText())*r.getQtdEstoque());
+        r.setPesoRacao((double) Double.parseDouble(tfPesoRacao.getText()) * r.getQtdEstoque());
         EstoqueDAO dao = new EstoqueDAO();
         dao.salvar(r);
         limparCampos();

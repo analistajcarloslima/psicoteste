@@ -45,6 +45,7 @@ public class TelaConsultaTanqueRede extends javax.swing.JDialog {
         tbPesquisar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         FormataTamanhoColunasJTable.packColumns(tbPesquisar, 1);
         tfPesquisarPorNome.grabFocus();
+        JcPesquisaTanqueDisponivel.setSelectedIndex(1);
         btEditar.setEnabled(false);
         this.setIconImage(new ImageIcon(getClass().getResource("/techpesc/imagens/peixe.png")).getImage());
         setModal(true);
