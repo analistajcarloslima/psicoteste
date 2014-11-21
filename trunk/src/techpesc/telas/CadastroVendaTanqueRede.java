@@ -718,7 +718,7 @@ public class CadastroVendaTanqueRede extends javax.swing.JDialog {
                                 valorVenda = Double.parseDouble(valor);
                                 tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).setSituacaoTanqueRede(true);
                                 listaTanqueRedesVendidos.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
-                                valorVendaLista.add(valorVenda * tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()).getQuantidadePeixesVinculados());
+                                valorVendaLista.add(valorVenda);
                                 tanqueRedesNovoTR.add(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
                                 tanqueRedesLote.remove(tanqueRedesLote.get(tbTanqueRedeLote.getSelectedRow()));
                                 atualizaTabelaTanqueRedeNovoTR();
