@@ -2,10 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< .mine
+        <group>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/TelaRelatorioPrevisaoTanque.java</file>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/TelaRelatorioTanquesEmLotes.java</file>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/CadastroVendaTanqueRede.java</file>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/TelaRelatorioTransferencia.java</file>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/TelaRelatorioTanques.java</file>
+            <file>file:/C:/Users/usuario/Documents/psicoteste/src/techpesc/telas/TelaRelatorioMortandade.java</file>
+        </group>
+=======
         <group>
             <file>file:/C:/Documents%20and%20Settings/Usuario/Meus%20documentos/NetBeansProjects/psicoteste/src/techpesc/util/FormataTamanhoColunasJTable.java</file>
             <file>file:/C:/Documents%20and%20Settings/Usuario/Meus%20documentos/NetBeansProjects/psicoteste/src/techpesc/telas/TelaConsultaEntradaAlevino.java</file>
             <file>file:/C:/Documents%20and%20Settings/Usuario/Meus%20documentos/NetBeansProjects/psicoteste/src/techpesc/telas/CadastroLote.java</file>
         </group>
+>>>>>>> .r24
     </open-files>
 </project-private>

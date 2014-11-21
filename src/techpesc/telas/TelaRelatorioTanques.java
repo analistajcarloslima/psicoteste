@@ -223,7 +223,7 @@ public class TelaRelatorioTanques extends javax.swing.JDialog {
                 viewer.setSize(1000, 600);
                 viewer.setLocationRelativeTo(null);
                 viewer.setModal(true);
-                pathjrxml = JasperCompileManager.compileReport("C:\\Documents and Settings\\Usuario\\Meus documentos\\NetBeansProjects\\psicoteste\\src\\techpesc\\relatorio\\RelatorioTanques.jrxml");
+                pathjrxml = JasperCompileManager.compileReport("src/techpesc/relatorio/RelatorioTanques.jrxml");
                 JasperPrint printReport = JasperFillManager.fillReport(pathjrxml, parametros,
                         connection);
                 JasperViewer jv = new JasperViewer(printReport, false);
