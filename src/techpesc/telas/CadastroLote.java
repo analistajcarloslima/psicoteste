@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import techpesc.alevinos.Alevino;
 import techpesc.alevinos.AlevinoDAO;
 import techpesc.alevinos.AlevinoRN;
@@ -30,6 +31,7 @@ import techpesc.tanquerede.TanqueRede;
 import techpesc.tanquerede.TanqueRedeDAO;
 import techpesc.tanquerede.TanqueRedeRN;
 import techpesc.tanquerede.TanqueRedeTableModel;
+import techpesc.util.FormataTamanhoColunasJTable;
 import techpesc.util.Util;
 
 /**
@@ -462,37 +464,58 @@ public class CadastroLote extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tbTanqueRede);
 
+        btExcluirTanqueRede1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btExcluirTanqueRede1.setForeground(new java.awt.Color(255, 255, 255));
         btExcluirTanqueRede1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_excluir.png"))); // NOI18N
+        btExcluirTanqueRede1.setText("Excluir Tanque");
         btExcluirTanqueRede1.setContentAreaFilled(false);
         btExcluirTanqueRede1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btExcluirTanqueRede1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btExcluirTanqueRede1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btExcluirTanqueRede1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btExcluirTanqueRede1ActionPerformed(evt);
             }
         });
 
+        btPesquisaTanqueRede1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btPesquisaTanqueRede1.setForeground(new java.awt.Color(255, 255, 255));
         btPesquisaTanqueRede1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_pesquisar.png"))); // NOI18N
+        btPesquisaTanqueRede1.setText("Vincular Tanque");
+        btPesquisaTanqueRede1.setToolTipText("");
         btPesquisaTanqueRede1.setContentAreaFilled(false);
         btPesquisaTanqueRede1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisaTanqueRede1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btPesquisaTanqueRede1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btPesquisaTanqueRede1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisaTanqueRede1ActionPerformed(evt);
             }
         });
 
+        btCadastraTanqueRede.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btCadastraTanqueRede.setForeground(new java.awt.Color(255, 255, 255));
         btCadastraTanqueRede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/sub_cadastrar.png"))); // NOI18N
+        btCadastraTanqueRede.setText("Cad. Tanque");
         btCadastraTanqueRede.setContentAreaFilled(false);
         btCadastraTanqueRede.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCadastraTanqueRede.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastraTanqueRede.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btCadastraTanqueRede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastraTanqueRedeActionPerformed(evt);
             }
         });
 
+        btAdicionarPeixe.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btAdicionarPeixe.setForeground(new java.awt.Color(255, 255, 255));
         btAdicionarPeixe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/techpesc/imagens/adicionar_criacao.png"))); // NOI18N
+        btAdicionarPeixe.setText("Adicionar  Peixes");
         btAdicionarPeixe.setToolTipText("Adiciona peixes ao tanque rede selecionado");
         btAdicionarPeixe.setContentAreaFilled(false);
         btAdicionarPeixe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btAdicionarPeixe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btAdicionarPeixe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btAdicionarPeixe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarPeixeActionPerformed(evt);
@@ -512,19 +535,8 @@ public class CadastroLote extends javax.swing.JDialog {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(btAdicionarPeixe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCadastraTanqueRede, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btPesquisaTanqueRede1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btExcluirTanqueRede1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -535,6 +547,16 @@ public class CadastroLote extends javax.swing.JDialog {
                         .addGap(51, 51, 51)
                         .addComponent(tfQtdDePeixesNaoVinculados1)))
                 .addGap(92, 92, 92))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btAdicionarPeixe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btCadastraTanqueRede)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btPesquisaTanqueRede1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btExcluirTanqueRede1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
